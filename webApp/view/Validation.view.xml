@@ -1,0 +1,14 @@
+<mvc:View
+    controllerName="webApp.view.Validation"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Button
+        text="Say Hello"
+        press="onShowHello" 
+        icon="sap-icon://world"/>
+    <Input
+        value="{/recipient/name}"
+        description="Hello {/recipient/name}"
+        valueLiveUpdate="true"
+        width="60%" />
+</mvc:View>
