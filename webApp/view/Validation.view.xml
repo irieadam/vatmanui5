@@ -7,8 +7,8 @@
         press="onShowHello" 
         icon="sap-icon://world"/>
     <Input
-        value="{/recipient/name}"
-        description="Hello {/recipient/name}"
+        value="{vm>/recipient/name}"
+        description="Hello {vm>/recipient/name}"
         valueLiveUpdate="true"
         width="60%" />
 </mvc:View>
