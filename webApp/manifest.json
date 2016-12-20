@@ -1,0 +1,79 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+	"_version": "1.1.0",
+	"id": "vatmanui5.webApp",
+	"type": "application",
+	"i18n": "i18n/i18n.properties",
+	"title": "{{appTitle}}",
+	"description": "{{appDescription}}",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	},
+    "dataSources": {
+			"initData": {
+				"uri": "model/init.json",
+				"type": "JSON"
+			}
+    }
+  },
+  "sap.ui": {
+	"_version": "1.1.0",
+	"technology": "UI5",
+	"deviceTypes": {
+	  "desktop": true,
+	  "tablet": true,
+	  "phone": true
+	},
+	"supportedThemes": [
+	  "sap_belize"
+	]
+  },
+  "sap.ui5": {
+	"_version": "1.1.0",
+	"rootView": "vatmanui5.webApp.view.Login",
+	"dependencies": {
+	  "minUI5Version": "1.30",
+	  "libs": {
+		"sap.m": {}
+	  }
+	},
+	"models": {
+	  "i18n": {
+		"type": "sap.ui.model.resource.ResourceModel",
+		"settings": {
+		  "bundleName": "vatmanui5.webApp.i18n.i18n"
+		}
+	  },
+       "vm": {
+		"type": "sap.ui.model.json.JSONModel",
+        "dataSource": "initData"
+	  }
+	},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "vatmanui5.webApp.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "login",
+				"target": "login"
+			}],
+			"targets": {
+				"login": {
+						"viewName": "Login",
+						"viewLevel" : 1
+				},
+				"validation" : {
+						"viewName": "Validation",
+						"viewLevel" : 2
+				}
+			}
+		}
+  }
+}

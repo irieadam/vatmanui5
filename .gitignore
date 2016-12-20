@@ -1,3 +1,4 @@
 /node_modules
 /webApp/resources
 .vscode
+/data/vatman.sqlite

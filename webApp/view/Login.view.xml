@@ -1,0 +1,25 @@
+<mvc:View height="100%" controllerName="vatmanui5.webApp.view.Login" 
+    xmlns="sap.m" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:mvc="sap.ui.core.mvc">
+    <App id="app">
+        <Page title="Login" id="__page0" enableScrolling="false" floatingFooter="false">
+            <content>
+                <FlexBox height="100%" alignItems="Center" justifyContent="Center">
+                    <items>
+                        <VBox>
+                            <Input id="userId" placeholder="Enter user ..." value="admin@vatvision.com"/>
+                            <Input id="pw" type="Password" placeholder="Enter password ..." value="happyday1"/>
+                            <Button text="Login" press="login"/>
+                        </VBox>
+                    </items>
+                </FlexBox>
+            </content>
+            <footer>
+                <Toolbar width="100%" id="__toolbar3">
+                    <content></content>
+                </Toolbar>
+            </footer>
+        </Page>
+    </App>
+</mvc:View>

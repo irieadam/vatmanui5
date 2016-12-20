@@ -7,40 +7,28 @@ sap.ui.define([
 ], function (Controller, JSONModel, MessageToast,ResourceModel) {
     "use strict";
 
-    return Controller.extend("webApp.view.Validation", {
+    return Controller.extend("vatmanui5.webApp.view.Validation", {
     
         onInit: function () {
+            that  = this;
             // set data model on view
-            that = this;
-            var oData = {
-                recipient: {
-                    name: "World"
-                }
-            };
-            var oModel = new JSONModel(oData);
-            this.getView().setModel(oModel,"vm");
-
-            // set i18n model on view
-            var i18nModel = new ResourceModel({
-                bundleName: "webApp.i18n.i18n"
-            });
-            this.getView().setModel(i18nModel, "i18n");
-            
+          
             // ws connection      			
             connection.attachOpen(function (oControlEvent) {
+               
                  sap.m.MessageToast.show("connection opened");
       			}); 
 
-            this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode      
+           //   this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode      
 
             // server messages
             connection.attachMessage(function (oControlEvent) {
                var oModel = that.getView().getModel("vm");
                // var vm = that.getView().getModel('vm').getData();
 
+              // var oModel = sap.ui.getCore().getModel("vm");
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
                 console.log("Data!!" + data.vatRequester);
-                debugger;
                 oModel.setData({recipient : {name : data.vatRequester}}, true); 
         
             });
@@ -80,6 +68,17 @@ sap.ui.define([
 //         var sMsg = oBundle.getText("helloMsg", [sRecipient]);
          // show message
  //        MessageToast.show(sMsg);
-      }
+      },
+
+      doLogout: function () {
+            jQuery.ajax({
+                type: "DELETE",
+                contentType: "application/json",
+                url: "/logout",
+                success: function () {
+                    router.getTargets().display("login");
+                }
+            })
+        }
     });
 });

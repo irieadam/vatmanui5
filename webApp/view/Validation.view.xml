@@ -1,14 +1,259 @@
 <mvc:View
-    controllerName="webApp.view.Validation"
+height="100%"
+    controllerName="vatmanui5.webApp.view.Validation"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
-    <Button
-        text="Say Hello"
-        press="onShowHello" 
-        icon="sap-icon://world"/>
-    <Input
-        value="{vm>/recipient/name}"
-        description="Hello {vm>/recipient/name}"
-        valueLiveUpdate="true"
-        width="60%" />
+
+<App>
+<Page title="Some title" id="__page0" enableScrolling="false" floatingFooter="true" >
+
+	            <headerContent>
+
+	                <Button  text="Logout" width="100px" press="doLogout" icon="sap-icon://log"/>
+
+	            </headerContent>
+
+	        <content>
+			<Panel id="__panel0">
+
+	         <content>
+
+	                    <FlexBox width="100%" id="__box0">
+
+	                        <items>
+
+	                            <HBox width="11em" id="__hbox0">
+
+	                                <items>
+
+	                                    <Label  text="VAT requestor number " width="11em" id="__label2"/>
+
+	                                </items>
+
+	                            </HBox>
+
+	                            <HBox width="100%" id="__hbox1">
+
+	                                <items>
+
+	                                    <sap.ui.commons:TextField  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.commons="sap.ui.commons" id="__field0" width="4em"/>
+
+	                                    <sap.ui.commons:TextField  xmlns:sap.ui.commons="sap.ui.commons" id="__field1"/>
+
+										 
+	                                </items>
+
+	                            </HBox>
+
+	                        </items>
+
+	                    </FlexBox>
+						 <Button
+							text="Say Hello"
+							press="onShowHello" 
+							icon="sap-icon://world"/>
+						<Input
+							value="{vm>/recipient/name}"
+							description="Hello {vm>/recipient/name}"
+							valueLiveUpdate="true"
+							width="60%" /> 
+
+	                </content>
+
+	            </Panel><IconTabBar selectedKey="__filter0" id="__bar0">
+
+	                <items><IconTabFilter text="requests" count="22" showAll="true" id="__filter0">
+
+	                    <content>
+
+	                        <Table noDataText="Drop column list items here and columns in the area above" id="__table0" showSeparators="Inner">
+
+	                            <items><ColumnListItem id="__item3">
+
+	                                    <cells>
+
+	                                        <Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="__input0"/>
+
+	                                        <Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="__input4"/>
+
+	                                        <Text text="Row 1 Cell 3" id="__text2"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy2"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy3"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy4"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy5"/></cells>
+
+	                                </ColumnListItem>
+
+	                                <ColumnListItem xmlns="sap.m" id="__item3_copy2">
+
+	                                    <cells>
+
+	                                        <Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="__input0_copy2"/>
+
+	                                        <Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="__input4_copy2"/>
+
+	                                        <Text text="Row 1 Cell 3" id="__text2_copy12"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy13"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy14"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy15"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy16"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy17"/>
+
+	                                        </cells>
+
+	                                    
+
+	                                </ColumnListItem>
+
+	                                <ColumnListItem xmlns="sap.m" id="__item3_copy">
+
+	                                    <cells>
+
+	                                        <Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="__input0_copy"/>
+
+	                                        <Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="__input4_copy"/>
+
+	                                        <Text text="Row 1 Cell 3" id="__text2_copy6"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy7"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy8"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy9"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy10"/>
+
+	                                        <Text  text="Row 1 Cell 3" id="__text2_copy11"/>
+
+	                                        </cells>
+
+	                                    
+
+	                                </ColumnListItem></items>
+
+	                            <columns><Column id="__column1">
+
+	                                    <header>
+
+	                                        <Label text="Country" id="__label3"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column0">
+
+	                                    <header>
+
+	                                        <Label text="VAT Number" id="__label0"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column2">
+
+	                                    <header>
+
+	                                        <Label text="Name" id="__label4"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column3">
+
+	                                    <header>
+
+	                                        <Text text="Address" id="__text0"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column4">
+
+	                                    <header>
+
+	                                        <Text text="Confirmation" id="__text1"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column5">
+
+	                                    <header>
+
+	                                        <Text text="Request Date" id="__text3"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column6">
+
+	                                    <header>
+
+	                                        <Text text="Valid" id="__text4"/>
+
+	                                    </header>
+
+	                                </Column>
+
+	                                <Column id="__column7">
+
+	                                    <header>
+
+	                                        <Text text="Retries" id="__text6"/>
+
+	                                    </header>
+
+	                                </Column></columns></Table>
+
+	                    </content>
+
+	                    </IconTabFilter>
+
+	                    <IconTabFilter text="failed" count="10" icon="sap-icon://message-error" iconColor="Critical" id="__filter1"/>
+
+	                    <IconTabFilter text="valid" count="5" icon="sap-icon://accept" iconColor="Positive" id="__filter2"/>
+	                     
+	                    <IconTabFilter text="error" count="2" icon="sap-icon://message-warning" id="__filter3" iconColor="Critical"/></items>
+
+	            </IconTabBar>
+
+	        </content>
+	        <footer>
+	            <Toolbar width="100%" id="__toolbar3">
+	                <content>
+	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="__uploader0" buttonText="Select File" icon="sap-icon://upload"/>
+	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete"/>
+	                    <ToolbarSpacer  id="__spacer0"/>
+	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision"/>
+	                    <ToolbarSpacer  id="__spacer0_copy"/>
+	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="-1" id="__group0">
+	                        <buttons>
+	                            <RadioButton selected="true" groupName="__group0" text=".xslx" id="__button1"/>
+	                            <RadioButton groupName="__group0" text=".csv" id="__button4"/>
+	                            </buttons>
+	                        
+	                    </RadioButtonGroup>
+	                    <Button text="Export" width="100px" id="__button6" icon="sap-icon://download"/>
+	                </content>
+	            </Toolbar>
+	        </footer>
+	        </Page>
+			</App>
 </mvc:View>
