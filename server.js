@@ -12,6 +12,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var WebSocketServer = require("ws").Server;
+var oWs;
 
 var PORT = process.env.PORT || 3000
 
@@ -36,7 +37,9 @@ wss.broadcast = function (data) {
 
 var clients = [];
 wss.on("connection", function (ws) {
-    clients.push(ws);
+    clients.push(ws);   
+    oWs = ws
+    
     
 
 
@@ -65,6 +68,94 @@ app.post('/users/login', function (req, res) {
 app.delete('/logout', middleware.requireAuthentication, function (req, res) {
     util.doLogout(req, res,db);
 });
+
+app.post('/process', middleware.requireAuthentication, function (req, res) {
+    var requestId = req.body.requestId;
+    var requesterNumber = req.body.requesterVatNumber;
+    var requesterCountry = req.body.requesterCountryCode;
+    var vatNumbers = req.body.vatNumbers;
+    var sessionId = util.getCookies(req).sessionId;
+    var ioId = util.getCookies(req).io;
+
+    res.cookie('lastRequest', requestId);
+    res.status(200).send();
+
+    util.getSoapClient().then(function(client){
+
+            async.eachLimit(vatNumbers, 28, function (vatRequest, cb) {
+
+                db.request.findOne({
+                    where: {
+                    itemId: vatRequest.itemId
+                    }
+                     }).then(function (request) {
+            
+                        if (request === null) {
+                          db.request.create({
+                            id: sessionId + requestId + vatRequest.itemId,
+                            sessionId: sessionId,
+                            requestId: requestId,
+                            itemId: vatRequest.itemId,
+                            vatNumber: vatRequest.vatNumber,
+                            countryCode: vatRequest.countryCode,
+                            requesterVatNumber: requesterNumber,
+                            requesterCountryCode: requesterCountry,
+                            status: '0',
+                            retries: 0
+                         }).then(function (request) {
+                            util.callVatService(client,request, oWs).then(
+                                function () {
+                                    cb();
+                                },function (err) {
+                                    cb(err);
+                                } );
+                        }).catch(function (e) {
+                            console.log(e);
+                        });
+                    } else {
+                        if (request.status === '3') {
+                            request.update({
+                                requestId: requestId,
+                            }).then(function () {
+                                cb();
+                            });
+                        } else {
+                            console.log('status '+ request.status +' updating and calling .')
+                            request.update({
+                                
+                                requestId: requestId,
+                                requesterVatNumber: requesterNumber,
+                                requesterCountryCode: requesterCountry,
+                                vatNumber: vatRequest.vatNumber,
+                                countryCode: vatRequest.countryCode,
+                                retries: request.retries + 1
+                                }).then(function (request) {
+                                        util.callVatService(client,request, oWs).then(
+                                            function (request) {  
+                                                cb();          
+                                            },function (err) {
+                                                cb(err);
+                                            });
+
+                        }).catch(function (e) {
+                            console.log(e);
+                        });
+                    }
+                }
+            
+            });
+        }, function (err) {
+            if (err) {
+                console.log('A file failed to process: ' +  err);
+            } else {
+                console.log('All files have been processed successfully');
+            }
+        }); //async
+    },function(err){
+        console.log("could not get soap client!!" + err);
+    });
+});
+
 
 db.sequelize.sync({
     force: true

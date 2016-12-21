@@ -2,75 +2,99 @@ var that;
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-   "sap/m/MessageToast",
-   "sap/ui/model/resource/ResourceModel"
-], function (Controller, JSONModel, MessageToast,ResourceModel) {
+    "sap/m/MessageToast",
+    "sap/ui/model/resource/ResourceModel"
+], function (Controller, JSONModel, MessageToast, ResourceModel) {
     "use strict";
 
     return Controller.extend("vatmanui5.webApp.view.Validation", {
-    
+
         onInit: function () {
-            that  = this;
-            // set data model on view
-          
+            that = this;
+
+              // set data model on view
+
             // ws connection      			
             connection.attachOpen(function (oControlEvent) {
-               
-                 sap.m.MessageToast.show("connection opened");
-      			}); 
 
-           //   this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode      
+                sap.m.MessageToast.show("connection opened");
+            });
+
+            //   this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode      
 
             // server messages
             connection.attachMessage(function (oControlEvent) {
-               var oModel = that.getView().getModel("vm");
-               // var vm = that.getView().getModel('vm').getData();
+                var oModel = that.getView().getModel("vm");
+                // var vm = that.getView().getModel('vm').getData();
 
-              // var oModel = sap.ui.getCore().getModel("vm");
+                // var oModel = sap.ui.getCore().getModel("vm");
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
-                console.log("Data!!" + data.vatRequester);
-                oModel.setData({recipient : {name : data.vatRequester}}, true); 
-        
+                console.log("Data!!" + JSON.stringify(data));
+                oModel.setData({ recipient: { name: data.vatRequester } }, true);
+
             });
-    
+
             // error handling
             connection.attachError(function (oControlEvent) {
-                sap.m.MessageToast.show("Websocket connection error" );
-            }); 
-    
+                sap.m.MessageToast.show("Websocket connection error");
+            });
+
             // onConnectionClose
             connection.attachClose(function (oControlEvent) {
                 sap.m.MessageToast.show("Websocket connection closed");
-            });    
+            });
 
 
-            },
+        },
+
+        onProcess: function(evt) {
+            var oModel = that.getView().getModel("vm");
+            var vm = oModel.getData();
+
+            var batch = {
+                "requestId" : that.guid(),
+                "requesterCountryCode" : vm.requesterCountryCode,
+                "requesterVatNumber" : vm.requesterVatNumber,
+                "vatNumbers" : vm.vatNumbers
+            }
+
+            var client = new XMLHttpRequest();
+            client.open('POST', '/process', true);
+            client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            client.onreadystatechange = function () { 
+                if (client.readyState == 4 && client.status == 401) {
+                    alert('Unauthorized');
+                } else if (client.readyState == 4 && client.status == 200) {
+                    // alert('Submitted');
+                }
+            }
+            client.send(JSON.stringify(batch));
+
+        },
+
+        onShowHello: function () {
+
+            // send message
+            //	var oModel = sap.ui.getCore().getModel();
+            //	var result = oModel.getData();
+            var msg = "TEST MESSAGE";
+            if (msg.length > 0) {
+                connection.send(JSON.stringify(
+                    { vatRequester: "NL67321678", vatNumbers: [{ country: "nl", vatNumber: "nmnmklkl" }] }
+                ));
+                // oModel.setData({message: ""}, true);
+            }
 
 
+            // read msg from i18n model
+            //         var oBundle = this.getView().getModel("i18n").getResourceBundle();
+            //         var sRecipient = this.getView().getModel().getProperty("/recipient/name");
+            //         var sMsg = oBundle.getText("helloMsg", [sRecipient]);
+            // show message
+            //        MessageToast.show(sMsg);
+        },
 
-      onShowHello : function () {
-
-                // send message
-      		//	var oModel = sap.ui.getCore().getModel();
-      		//	var result = oModel.getData();
-       			var msg = "TEST MESSAGE";
-       			if (msg.length > 0) {
-        			connection.send(JSON.stringify(
-         				{vatRequester : "NL67321678", vatNumbers : [{ country: "nl", vatNumber : "nmnmklkl" }]}
-        			));
-        	   // oModel.setData({message: ""}, true);
-       			}     
-      
-
-         // read msg from i18n model
-//         var oBundle = this.getView().getModel("i18n").getResourceBundle();
-//         var sRecipient = this.getView().getModel().getProperty("/recipient/name");
-//         var sMsg = oBundle.getText("helloMsg", [sRecipient]);
-         // show message
- //        MessageToast.show(sMsg);
-      },
-
-      doLogout: function () {
+        doLogout: function () {
             jQuery.ajax({
                 type: "DELETE",
                 contentType: "application/json",
@@ -79,6 +103,130 @@ sap.ui.define([
                     router.getTargets().display("login");
                 }
             })
+        },
+
+        upload: function (evt) {
+            if (!this.browserSupportFileUpload()) {
+                alert('The File APIs are not fully supported in this browser!');
+            } else {
+                this.handleFiles(evt.getParameter("files"));
+            }
+        },
+
+        handleFiles: function (files) {
+            var oModel = that.getView().getModel("vm");
+            var vm = oModel.getData();
+            var data = null;
+            var file = files[0];
+            var reader = new FileReader();
+            var fileType = "";
+            var fileName = file.name;
+            var csvData;
+
+            if (fileType === "text/csv" || fileName.substring(fileName.length, fileName.length - 3) === 'csv') {
+                fileType = 'csv';
+            } else { // if (fileType === "application/vnd.ms-excel" || fileType ===  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                fileType = 'xlsx';
+            }
+
+            if (fileType === 'csv') {
+                reader.readAsText(file);
+            } else if (fileType === 'xlsx') {
+                reader.readAsBinaryString(file);
+            }
+
+            reader.onload = function (event) {
+
+                if (fileType === 'csv') {
+                    csvData = event.target.result;
+
+                } else if (fileType === "xlsx") {
+                    var data = event.target.result;
+                    var cfb = XLSX.read(data, { type: 'binary' });
+                    var sheetName = cfb.SheetNames[0];
+                    csvData = XLS.utils.make_csv(cfb.Sheets[sheetName]);
+                }
+
+                // format input
+                var csvTextArray = csvData.split('\n');
+                var arrayOfObjects = csvTextArray.map(function (e, i) {
+
+                    var countryCode = e.split(';')[0];
+                    var vatNumber = e.split(';')[1];
+
+                    // deal with commas
+                    if (typeof vatNumber == 'undefined' || typeof countryCode == 'undefined') {
+                        countryCode = e.split(',')[0];
+                        vatNumber = e.split(',')[1];
+                    };
+
+                    //split if provided in same field
+                    if (typeof vatNumber == 'undefined' && typeof countryCode != 'undefined' && countryCode.length > 0) {
+                        vatNumber = countryCode.substring(2, countryCode.length);
+                        countryCode = countryCode.substring(0, 2);
+                    };
+
+                    // remove spaces
+                    if (typeof vatNumber != 'undefined' && typeof countryCode != 'undefined') {
+                        countryCode = countryCode.replace(/ /g, "");
+                        vatNumber = vatNumber.replace(/ /g, "");
+                    };
+
+                    //remove line breaks
+                    if (typeof vatNumber != 'undefined' && typeof countryCode != 'undefined') {
+                        countryCode = countryCode.replace(/\r/g, ""),
+                            vatNumber = vatNumber.replace(/\r/g, "")
+                    };
+
+
+                    return {
+                        itemId: that.guid(),
+                        countryCode: countryCode,
+                        vatNumber: vatNumber,
+                        traderName: '',
+                        traderAddress: '',
+                        confirmation: '',
+                        requestTime: '',
+                        valid: '',
+                        status: '1',
+                        retries: 0,
+                        editable: true
+                    };
+
+                });
+
+
+                var nonEmptyValues = arrayOfObjects.filter(function (i) { return i.countryCode.length > 0 });
+
+                vm.vatNumbers = nonEmptyValues;
+                vm.fileSelected = true;
+                vm.validateIsAllowed = true;
+                oModel.refresh(true);
+                debugger;
+            };
+            reader.onerror = function () {
+                alert('Unable to read ' + file.fileName);
+            };
+
+        },
+
+        browserSupportFileUpload: function () {
+            var isCompatible = false;
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                isCompatible = true;
+            }
+            return isCompatible;
+        },
+
+        guid: function () {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                    .toString(16)
+                    .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                s4() + '-' + s4() + s4() + s4();
         }
+
     });
 });

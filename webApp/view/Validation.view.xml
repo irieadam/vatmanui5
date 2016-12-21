@@ -36,9 +36,9 @@ height="100%"
 
 	                                <items>
 
-	                                    <sap.ui.commons:TextField  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.commons="sap.ui.commons" id="__field0" width="4em"/>
+	                                    <sap.ui.commons:TextField  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.commons="sap.ui.commons" id="__field0" width="4em" value="{vm>/requesterCountryCode}"/>
 
-	                                    <sap.ui.commons:TextField  xmlns:sap.ui.commons="sap.ui.commons" id="__field1"/>
+	                                    <sap.ui.commons:TextField  xmlns:sap.ui.commons="sap.ui.commons" id="__field1" value="{vm>/requesterVatNumber}"/>
 
 										 
 	                                </items>
@@ -53,177 +53,79 @@ height="100%"
 							press="onShowHello" 
 							icon="sap-icon://world"/>
 						<Input
-							value="{vm>/recipient/name}"
-							description="Hello {vm>/recipient/name}"
+							value="{vm>/requesterVatNumber}"
+							description="Hello {vm>/requesterVatNumber}"
 							valueLiveUpdate="true"
 							width="60%" /> 
 
 	                </content>
 
-	            </Panel><IconTabBar selectedKey="__filter0" id="__bar0">
+	            </Panel>
+					<IconTabBar selectedKey="__filter0" id="__bar0">
+	                <items>
+						<IconTabFilter text="requests" count="22" showAll="true" id="__filter0">
 
-	                <items><IconTabFilter text="requests" count="22" showAll="true" id="__filter0">
-
-	                    <content>
-
-	                        <Table noDataText="Drop column list items here and columns in the area above" id="__table0" showSeparators="Inner">
-
-	                            <items><ColumnListItem id="__item3">
-
-	                                    <cells>
-
-	                                        <Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="__input0"/>
-
-	                                        <Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="__input4"/>
-
-	                                        <Text text="Row 1 Cell 3" id="__text2"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy2"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy3"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy4"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy5"/></cells>
-
+	                        <Table noDataText="upload a file" 
+								   id="reqeuestsTable" 
+								   showSeparators="Inner" 
+								   items="{vm>/vatNumbers}" >
+ 									
+									<columns>
+										<Column id="__column1">
+											<header>
+												<Label text="Country"/>
+											</header>
+										</Column>
+										<Column id="__column0">
+											<header>
+												<Label text="VAT Number"/>
+											</header>
+										</Column>
+										<Column id="__column2">
+											<header>
+												<Label text="Name" />
+											</header>
+										</Column>
+										<Column id="__column3">
+											<header>
+												<Label text="Address" />
+											</header>
+										</Column>
+										<Column id="__column4">
+											<header>
+												<Label text="Confirmation" />
+											</header>
+										</Column>
+										<Column id="__column5">
+											<header>
+												<Label text="Request Date" />
+											</header>
+										</Column>
+										<Column id="__column6">
+											<header>
+												<Label text="Valid" />
+											</header>
+										</Column>
+										<Column id="__column7">
+											<header>
+												<Label text="Retries"/>
+											</header>
+										</Column>
+									</columns>
+	                      
+									<ColumnListItem id="__item3">										
+										<cells>
+											<Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="countryCode" value="{vm>countryCode}"/>
+											<Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="vatNumber" value="{vm>vatNumber}"/>
+											<Label text="{path:'vm>traderName'}"/>
+											<Label text="{path:'vm>traderAddress'}"/>
+											<Label text="{path:'vm>confirmation'}"/>
+											<Label text="{path:'vm>requestTime'}"/>
+											<Label text="{path:'vm>valid'}"/>
+											<Label text="{path:'vm>retries'}"/>
+										</cells>
 	                                </ColumnListItem>
-
-	                                <ColumnListItem xmlns="sap.m" id="__item3_copy2">
-
-	                                    <cells>
-
-	                                        <Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="__input0_copy2"/>
-
-	                                        <Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="__input4_copy2"/>
-
-	                                        <Text text="Row 1 Cell 3" id="__text2_copy12"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy13"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy14"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy15"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy16"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy17"/>
-
-	                                        </cells>
-
-	                                    
-
-	                                </ColumnListItem>
-
-	                                <ColumnListItem xmlns="sap.m" id="__item3_copy">
-
-	                                    <cells>
-
-	                                        <Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="__input0_copy"/>
-
-	                                        <Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="__input4_copy"/>
-
-	                                        <Text text="Row 1 Cell 3" id="__text2_copy6"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy7"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy8"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy9"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy10"/>
-
-	                                        <Text  text="Row 1 Cell 3" id="__text2_copy11"/>
-
-	                                        </cells>
-
-	                                    
-
-	                                </ColumnListItem></items>
-
-	                            <columns><Column id="__column1">
-
-	                                    <header>
-
-	                                        <Label text="Country" id="__label3"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column0">
-
-	                                    <header>
-
-	                                        <Label text="VAT Number" id="__label0"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column2">
-
-	                                    <header>
-
-	                                        <Label text="Name" id="__label4"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column3">
-
-	                                    <header>
-
-	                                        <Text text="Address" id="__text0"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column4">
-
-	                                    <header>
-
-	                                        <Text text="Confirmation" id="__text1"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column5">
-
-	                                    <header>
-
-	                                        <Text text="Request Date" id="__text3"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column6">
-
-	                                    <header>
-
-	                                        <Text text="Valid" id="__text4"/>
-
-	                                    </header>
-
-	                                </Column>
-
-	                                <Column id="__column7">
-
-	                                    <header>
-
-	                                        <Text text="Retries" id="__text6"/>
-
-	                                    </header>
-
-	                                </Column></columns></Table>
-
-	                    </content>
-
+	                           </Table>
 	                    </IconTabFilter>
 
 	                    <IconTabFilter text="failed" count="10" icon="sap-icon://message-error" iconColor="Critical" id="__filter1"/>
@@ -238,10 +140,10 @@ height="100%"
 	        <footer>
 	            <Toolbar width="100%" id="__toolbar3">
 	                <content>
-	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="__uploader0" buttonText="Select File" icon="sap-icon://upload"/>
+	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="__uploader0" buttonText="Select File" icon="sap-icon://upload" change="upload"/>
 	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete"/>
 	                    <ToolbarSpacer  id="__spacer0"/>
-	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision"/>
+	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision" press="onProcess" />
 	                    <ToolbarSpacer  id="__spacer0_copy"/>
 	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="-1" id="__group0">
 	                        <buttons>
