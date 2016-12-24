@@ -5,7 +5,7 @@ height="100%"
     xmlns:mvc="sap.ui.core.mvc">
 
 <App>
-<Page title="Some title" id="__page0" enableScrolling="false" floatingFooter="true" >
+<Page title="Some title" id="__page0" enableScrolling="true" floatingFooter="true" >
 
 	            <headerContent>
 
@@ -48,15 +48,6 @@ height="100%"
 	                        </items>
 
 	                    </FlexBox>
-						 <Button
-							text="Say Hello"
-							press="onShowHello" 
-							icon="sap-icon://world"/>
-						<Input
-							value="{vm>/requesterVatNumber}"
-							description="Hello {vm>/requesterVatNumber}"
-							valueLiveUpdate="true"
-							width="60%" /> 
 
 	                </content>
 
@@ -68,15 +59,16 @@ height="100%"
 	                        <Table noDataText="upload a file" 
 								   id="reqeuestsTable" 
 								   showSeparators="Inner" 
-								   items="{vm>/vatNumbers}" >
+								   items="{vm>/vatNumbers}" 
+								   height="60em">
  									
 									<columns>
-										<Column id="__column1">
+										<Column id="__column1" width="4em">
 											<header>
 												<Label text="Country"/>
 											</header>
 										</Column>
-										<Column id="__column0">
+										<Column id="__column0" width="10em">
 											<header>
 												<Label text="VAT Number"/>
 											</header>
@@ -91,22 +83,22 @@ height="100%"
 												<Label text="Address" />
 											</header>
 										</Column>
-										<Column id="__column4">
+										<Column id="__column4" width="10em">
 											<header>
 												<Label text="Confirmation" />
 											</header>
 										</Column>
-										<Column id="__column5">
+										<Column id="__column5" width="8em">
 											<header>
 												<Label text="Request Date" />
 											</header>
 										</Column>
-										<Column id="__column6">
+										<Column id="__column6" width="6em">
 											<header>
 												<Label text="Valid" />
 											</header>
 										</Column>
-										<Column id="__column7">
+										<Column id="__column7" width="4em">
 											<header>
 												<Label text="Retries"/>
 											</header>
@@ -114,25 +106,26 @@ height="100%"
 									</columns>
 	                      
 									<ColumnListItem id="__item3">										
-										<cells>
-											<Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="countryCode" value="{vm>countryCode}"/>
-											<Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="vatNumber" value="{vm>vatNumber}"/>
-											<Label text="{path:'vm>traderName'}"/>
-											<Label text="{path:'vm>traderAddress'}"/>
-											<Label text="{path:'vm>confirmation'}"/>
-											<Label text="{path:'vm>requestTime'}"/>
-											<Label text="{path:'vm>valid'}"/>
-											<Label text="{path:'vm>retries'}"/>
+										<cells >
+											<Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
+											<Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
+											<Input width="100%" id="traderName" value="{vm>traderName}" editable="false"/>
+											<Input width="100%" id="traderAddress" value="{vm>traderAddress}" editable="false"/>
+											<Input width="100%" id="confirmation" value="{vm>confirmation}" editable="false"/>
+											<Input width="100%" id="requestTime" value="{vm>requestTime}" editable="false"/>
+											<Input width="100%" id="valid" value="{vm>valid}" editable="false"/>
+											<Input width="100%" id="retries" value="{vm>retries}" editable="false"/>
 										</cells>
 	                                </ColumnListItem>
 	                           </Table>
 	                    </IconTabFilter>
 
-	                    <IconTabFilter text="failed" count="10" icon="sap-icon://message-error" iconColor="Critical" id="__filter1"/>
-
+	                
 	                    <IconTabFilter text="valid" count="5" icon="sap-icon://accept" iconColor="Positive" id="__filter2"/>
-	                     
-	                    <IconTabFilter text="error" count="2" icon="sap-icon://message-warning" id="__filter3" iconColor="Critical"/></items>
+
+     					<IconTabFilter text="not valid" count="10" icon="sap-icon://message-error" iconColor="Critical" id="__filter1"/>
+     
+	                    <IconTabFilter text="failed" count="2" icon="sap-icon://message-warning" id="__filter3" iconColor="Negative"/></items>
 
 	            </IconTabBar>
 
@@ -140,19 +133,19 @@ height="100%"
 	        <footer>
 	            <Toolbar width="100%" id="__toolbar3">
 	                <content>
-	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="__uploader0" buttonText="Select File" icon="sap-icon://upload" change="upload"/>
-	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete"/>
+	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="fileUploader" buttonText="Select File" icon="sap-icon://upload" change="upload"/>
+	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete" press="clear"/>
 	                    <ToolbarSpacer  id="__spacer0"/>
 	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision" press="onProcess" />
 	                    <ToolbarSpacer  id="__spacer0_copy"/>
-	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="-1" id="__group0">
+	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="0" id="formatSelection">
 	                        <buttons>
 	                            <RadioButton selected="true" groupName="__group0" text=".xslx" id="__button1"/>
 	                            <RadioButton groupName="__group0" text=".csv" id="__button4"/>
 	                            </buttons>
 	                        
 	                    </RadioButtonGroup>
-	                    <Button text="Export" width="100px" id="__button6" icon="sap-icon://download"/>
+	                    <Button text="Export" width="100px" id="__button6" icon="sap-icon://download" press="onExport"/>
 	                </content>
 	            </Toolbar>
 	        </footer>

@@ -25,12 +25,29 @@ sap.ui.define([
             // server messages
             connection.attachMessage(function (oControlEvent) {
                 var oModel = that.getView().getModel("vm");
-                // var vm = that.getView().getModel('vm').getData();
-
-                // var oModel = sap.ui.getCore().getModel("vm");
+                var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
-                console.log("Data!!" + JSON.stringify(data));
-                oModel.setData({ recipient: { name: data.vatRequester } }, true);
+                 console.log("Data!!" + JSON.stringify(data));
+               
+                for (var i=0; i<requests.length; i++) {
+
+                    if (requests[i].itemId === data.itemId) {
+                        requests[i].traderName = data.traderName;
+                        requests[i].traderAddress = data.traderAddress;
+                        requests[i].confirmation = data.confirmationNumber;
+                        requests[i].requestTime = data.updatedAt.toString().substring(0,10);
+                        requests[i].valid = data.valid;
+                        requests[i].status = data.status;
+                        requests[i].retries = data.retries;
+                        if (data.status === "3") {
+                            requests[i].editable = false;
+                        } 
+                        break;
+                    }
+                }
+                oModel.refresh(true);            
+               
+               // oModel.setData({ recipient: { name: data.vatRequester } }, true);
 
             });
 
@@ -63,13 +80,30 @@ sap.ui.define([
             client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
             client.onreadystatechange = function () { 
                 if (client.readyState == 4 && client.status == 401) {
-                    alert('Unauthorized');
+                   sap.m.MessageToast.show("Unauthorized");
                 } else if (client.readyState == 4 && client.status == 200) {
                     // alert('Submitted');
                 }
             }
             client.send(JSON.stringify(batch));
 
+        },
+
+        onExport: function(evt) {
+         debugger;
+          var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
+
+            var client = new XMLHttpRequest();
+            client.open('POST', '/export', true);
+            client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            client.onreadystatechange = function () { 
+                if (client.readyState == 4 && client.status == 401) {
+                        sap.m.MessageToast.show("Unauthorized");
+                } else if (client.readyState == 4 && client.status == 200) {
+                    // alert('Submitted');
+                }
+            }
+            client.send(JSON.stringify(msg)); 
         },
 
         onShowHello: function () {
@@ -103,6 +137,18 @@ sap.ui.define([
                     router.getTargets().display("login");
                 }
             })
+        },
+
+        clear : function (evt) {
+            var oModel = that.getView().getModel("vm");
+            var vm = oModel.getData();
+            vm.validateIsAllowed = false;
+            vm.exportIsAllowed = false; 
+            vm.fileSelected = false ;  
+            vm.vatNumbers = [];
+            that.getView().byId("fileUploader").clear();
+            oModel.refresh(true);
+
         },
 
         upload: function (evt) {
@@ -202,7 +248,7 @@ sap.ui.define([
                 vm.fileSelected = true;
                 vm.validateIsAllowed = true;
                 oModel.refresh(true);
-                debugger;
+    
             };
             reader.onerror = function () {
                 alert('Unable to read ' + file.fileName);

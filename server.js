@@ -156,6 +156,11 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     });
 });
 
+app.post('/export', middleware.requireAuthentication, function (req, res) {
+    util.doExport(req, res,db);
+
+});
+
 
 db.sequelize.sync({
     force: true
