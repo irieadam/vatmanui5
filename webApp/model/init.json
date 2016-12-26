@@ -2,6 +2,9 @@
     "requestId": "",
     "requesterCountryCode": "NL",
     "requesterVatNumber": "855356650B01",
+    "validCount" : 0,
+    "notValidCount" : 0,
+    "failedCount" : 0,
     "vatNumbers": [
         {
             "itemId": "ed62e65d-29fc-7aad-e0e4-6d91dbeca883",

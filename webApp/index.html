@@ -4,9 +4,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Node.js Web Sockets Chat</title>
+	<title>Vatman</title>
 	<script id="sap-ui-bootstrap" 
-		src="https://openui5.hana.ondemand.com/1.38.10/resources/sap-ui-core.js"
+		src="/resources/sap-ui-core.js"
 		data-sap-ui-theme="sap_belize"
 		data-sap-ui-xx-bindingSyntax="complex"
 		data-sap-ui-resourceroots='{
@@ -16,7 +16,7 @@
 	</script>
 
 	<script>
-      // WS handling
+      // WS handling src="https://openui5.hana.ondemand.com/1.38.10/resources/sap-ui-core.js"
       jQuery.sap.require("sap.ui.core.ws.WebSocket");  
       //var connection = new sap.ui.core.ws.WebSocket('ws://localhost:3080');
       var connection = new sap.ui.core.ws.WebSocket('/node/process');      
@@ -30,6 +30,8 @@
 		})
 	}).placeAt("content");
 </script>
+
+
 
 </head>
 <body class="sapUiBody" role="application">

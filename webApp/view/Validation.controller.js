@@ -2,9 +2,10 @@ var that;
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
     "sap/m/MessageToast",
     "sap/ui/model/resource/ResourceModel"
-], function (Controller, JSONModel, MessageToast, ResourceModel) {
+], function (Controller, JSONModel, Filter, MessageToast, ResourceModel) {
     "use strict";
 
     return Controller.extend("vatmanui5.webApp.view.Validation", {
@@ -13,7 +14,7 @@ sap.ui.define([
             that = this;
 
               // set data model on view
-
+         
             // ws connection      			
             connection.attachOpen(function (oControlEvent) {
 
@@ -25,29 +26,36 @@ sap.ui.define([
             // server messages
             connection.attachMessage(function (oControlEvent) {
                 var oModel = that.getView().getModel("vm");
-                var requests = oModel.getData().vatNumbers;
+                var requests = oModel.getData().vatNumbers; 
+                debugger;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
-                 console.log("Data!!" + JSON.stringify(data));
+                console.log("Data!!" + JSON.stringify(data));
                
-                for (var i=0; i<requests.length; i++) {
+                if(typeof data.itemId !== 'undefined') {
+                    for (var i=0; i<requests.length; i++) {
 
-                    if (requests[i].itemId === data.itemId) {
-                        requests[i].traderName = data.traderName;
-                        requests[i].traderAddress = data.traderAddress;
-                        requests[i].confirmation = data.confirmationNumber;
-                        requests[i].requestTime = data.updatedAt.toString().substring(0,10);
-                        requests[i].valid = data.valid;
-                        requests[i].status = data.status;
-                        requests[i].retries = data.retries;
-                        if (data.status === "3") {
-                            requests[i].editable = false;
-                        } 
-                        break;
+                        if (requests[i].itemId === data.itemId) {
+                            requests[i].traderName = data.traderName;
+                            requests[i].traderAddress = data.traderAddress;
+                            requests[i].confirmation = data.confirmationNumber;
+                            requests[i].requestTime = data.updatedAt.toString().substring(0,10);
+                            requests[i].valid = data.valid;
+                            requests[i].status = data.status;
+                            requests[i].retries = data.retries;
+                            if (data.status === "3") {
+                                requests[i].editable = false;
+                            } 
+                            break;
+                        }
                     }
-                }
+                } else {
+                    sap.m.MessageToast.show('Processing completed');
+                } 
+
+                oModel.getData().validCount = requests.filter(function(value) { return value.status === "3" }).length;
+                oModel.getData().notValidCount = requests.filter(function(value) { return value.status === "5" }).length;
+                oModel.getData().failedCount = requests.filter(function(value) { return value.status === "4" }).length;
                 oModel.refresh(true);            
-               
-               // oModel.setData({ recipient: { name: data.vatRequester } }, true);
 
             });
 
@@ -90,11 +98,10 @@ sap.ui.define([
         },
 
         onExport: function(evt) {
-         debugger;
           var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
 
             var client = new XMLHttpRequest();
-            client.open('POST', '/export', true);
+            client.open('GET', '/export', true);
             client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
             client.onreadystatechange = function () { 
                 if (client.readyState == 4 && client.status == 401) {
@@ -139,12 +146,33 @@ sap.ui.define([
             })
         },
 
+        handleIconTabBarSelect: function (oEvent) {
+            var oBinding = that.getView().byId("requestsTable").getBinding("items"),
+				sKey = oEvent.getParameter("key"),
+				oFilter;
+			if (sKey === "valid") {
+				oFilter = new Filter("status", "EQ", "3");
+				oBinding.filter([oFilter]);
+			} else if (sKey === "notValid") {
+				oFilter = new Filter("status", "EQ", "5");
+				oBinding.filter([oFilter]);
+			} else if (sKey === "failed") {
+				oFilter = new Filter("status", "EQ", "4");
+				oBinding.filter([oFilter]);
+			} else {
+				oBinding.filter([]);
+			}
+        },
+
         clear : function (evt) {
             var oModel = that.getView().getModel("vm");
             var vm = oModel.getData();
             vm.validateIsAllowed = false;
             vm.exportIsAllowed = false; 
-            vm.fileSelected = false ;  
+            vm.fileSelected = false ; 
+            vm.validCount = 0;
+            vm.notValidCount = 0;
+            vm.failedCount = 0;
             vm.vatNumbers = [];
             that.getView().byId("fileUploader").clear();
             oModel.refresh(true);

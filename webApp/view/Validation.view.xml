@@ -2,9 +2,10 @@
 height="100%"
     controllerName="vatmanui5.webApp.view.Validation"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
 
-<App>
+<App class="thisApp"> 
 <Page title="Some title" id="__page0" enableScrolling="true" floatingFooter="true" >
 
 	            <headerContent>
@@ -26,7 +27,7 @@ height="100%"
 
 	                                <items>
 
-	                                    <Label  text="VAT requestor number " width="11em" id="__label2"/>
+	                                    <Label  text="VAT requestor number " width="11em" id="__label2" labelFor="__hbox1"/>
 
 	                                </items>
 
@@ -36,10 +37,13 @@ height="100%"
 
 	                                <items>
 
-	                                    <sap.ui.commons:TextField  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.commons="sap.ui.commons" id="__field0" width="4em" value="{vm>/requesterCountryCode}"/>
+	                       <!--             <sap.ui.commons:TextField  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.commons="sap.ui.commons" id="__field0" width="4em" value="{vm>/requesterCountryCode}"/>
 
 	                                    <sap.ui.commons:TextField  xmlns:sap.ui.commons="sap.ui.commons" id="__field1" value="{vm>/requesterVatNumber}"/>
+--> 
+										<Input id="requestCC" width="4em" value="{vm>/requesterCountryCode}"/>
 
+										<Input value="{vm>/requesterVatNumber}"/>
 										 
 	                                </items>
 
@@ -52,12 +56,25 @@ height="100%"
 	                </content>
 
 	            </Panel>
-					<IconTabBar selectedKey="__filter0" id="__bar0">
+					<IconTabBar selectedKey="all" id="iconTabBar" select="handleIconTabBarSelect">
 	                <items>
-						<IconTabFilter text="requests" count="22" showAll="true" id="__filter0">
+						<IconTabFilter text="requests" count="{vm>/vatNumbers/length}" showAll="true" id="__filter0" key="all" />
 
-	                        <Table noDataText="upload a file" 
-								   id="reqeuestsTable" 
+							  <!-- <core:Fragment id="requestsTable" fragmentName="vatmanui5.webApp.view.RequestsTable" type="XML" /> -->
+	                  <!--       
+	                    </IconTabFilter> -->
+
+	                
+	                    <IconTabFilter text="valid" count="{vm>/validCount}" icon="sap-icon://accept" iconColor="Positive" id="__filter2" key="valid"/>
+
+     					<IconTabFilter text="not valid" count="{vm>/notValidCount}" icon="sap-icon://message-error" iconColor="Critical" id="__filter1" key="notValid"/>
+     
+	                    <IconTabFilter text="failed" count="{vm>/failedCount}" icon="sap-icon://message-warning" id="__filter3" iconColor="Negative" key="failed"/></items>
+
+	            </IconTabBar>
+
+				<Table noDataText="no data" 
+								   id="requestsTable" 
 								   showSeparators="Inner" 
 								   items="{vm>/vatNumbers}" 
 								   height="60em">
@@ -110,7 +127,7 @@ height="100%"
 											<Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
 											<Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
 											<Input width="100%" id="traderName" value="{vm>traderName}" editable="false"/>
-											<Input width="100%" id="traderAddress" value="{vm>traderAddress}" editable="false"/>
+											<Input width="100%" id="traderAddress" value="{vm>traderAddress}" editable="false" class="myInputField"/>
 											<Input width="100%" id="confirmation" value="{vm>confirmation}" editable="false"/>
 											<Input width="100%" id="requestTime" value="{vm>requestTime}" editable="false"/>
 											<Input width="100%" id="valid" value="{vm>valid}" editable="false"/>
@@ -118,16 +135,6 @@ height="100%"
 										</cells>
 	                                </ColumnListItem>
 	                           </Table>
-	                    </IconTabFilter>
-
-	                
-	                    <IconTabFilter text="valid" count="5" icon="sap-icon://accept" iconColor="Positive" id="__filter2"/>
-
-     					<IconTabFilter text="not valid" count="10" icon="sap-icon://message-error" iconColor="Critical" id="__filter1"/>
-     
-	                    <IconTabFilter text="failed" count="2" icon="sap-icon://message-warning" id="__filter3" iconColor="Negative"/></items>
-
-	            </IconTabBar>
 
 	        </content>
 	        <footer>

@@ -75,7 +75,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     var requesterCountry = req.body.requesterCountryCode;
     var vatNumbers = req.body.vatNumbers;
     var sessionId = util.getCookies(req).sessionId;
-    var ioId = util.getCookies(req).io;
+    
 
     res.cookie('lastRequest', requestId);
     res.status(200).send();
@@ -120,7 +120,6 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                                 cb();
                             });
                         } else {
-                            console.log('status '+ request.status +' updating and calling .')
                             request.update({
                                 
                                 requestId: requestId,
@@ -148,7 +147,11 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
             if (err) {
                 console.log('A file failed to process: ' +  err);
             } else {
+             
                 console.log('All files have been processed successfully');
+                var data = { processed : true} 
+                oWs.send(JSON.stringify({ data})); 
+                 console.log('NOtify sent');
             }
         }); //async
     },function(err){
@@ -156,7 +159,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     });
 });
 
-app.post('/export', middleware.requireAuthentication, function (req, res) {
+app.get('/export', middleware.requireAuthentication, function (req, res) {
     util.doExport(req, res,db);
 
 });

@@ -50,7 +50,14 @@
         "dataSource": "initData"
 	  }
 	},
-		"routing": {
+	"resources": {
+	  "css": [
+		{
+		  "uri": "css/style.css"
+		}
+	  ]
+	},
+	"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
