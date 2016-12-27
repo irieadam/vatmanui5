@@ -12,6 +12,13 @@ sap.ui.define([
 
         onInit: function () {
             that = this;
+        //    debugger;
+
+            this.getView().byId("__page0").attachBrowserEvent("dragenter", dragenter, false);
+            this.getView().byId("__page0").attachBrowserEvent("dragover", dragover, false);
+            this.getView().byId("__page0").attachBrowserEvent("drop", drop, false);
+
+            ///
 
               // set data model on view
          
@@ -306,3 +313,23 @@ sap.ui.define([
 
     });
 });
+
+function dragenter(e) {
+  e.stopPropagation();
+  e.preventDefault();
+}
+
+function dragover(e) {
+  e.stopPropagation();
+  e.preventDefault();
+}
+
+function drop(e) {
+ debugger;
+  e.stopPropagation();
+  e.preventDefault();
+  var dt = e.originalEvent.dataTransfer;
+  var files = dt.files;
+
+  that.handleFiles(files);
+}

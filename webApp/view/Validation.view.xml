@@ -6,7 +6,7 @@ height="100%"
 	xmlns:core="sap.ui.core">
 
 <App class="thisApp"> 
-<Page title="Some title" id="__page0" enableScrolling="true" floatingFooter="true" >
+<Page title="VAT Validation" id="__page0" enableScrolling="true" floatingFooter="true" >
 
 	            <headerContent>
 
@@ -27,7 +27,7 @@ height="100%"
 
 	                                <items>
 
-	                                    <Label  text="VAT requestor number " width="11em" id="__label2" labelFor="__hbox1"/>
+	                                    <Label  text="VAT Requestor Number " width="11em" id="requestorId" labelFor="__hbox1"  class="myLabel"/>
 
 	                                </items>
 
@@ -126,12 +126,12 @@ height="100%"
 										<cells >
 											<Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
 											<Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
-											<Input width="100%" id="traderName" value="{vm>traderName}" editable="false"/>
-											<Input width="100%" id="traderAddress" value="{vm>traderAddress}" editable="false" class="myInputField"/>
-											<Input width="100%" id="confirmation" value="{vm>confirmation}" editable="false"/>
-											<Input width="100%" id="requestTime" value="{vm>requestTime}" editable="false"/>
-											<Input width="100%" id="valid" value="{vm>valid}" editable="false"/>
-											<Input width="100%" id="retries" value="{vm>retries}" editable="false"/>
+											<Label width="100%" id="traderName" text="{vm>traderName}"  class="myLabel"/>
+											<Label width="100%" id="traderAddress" text="{vm>traderAddress}"  class="myLabel"/>
+											<Label width="100%" id="confirmation" text="{vm>confirmation}"  class="myLabel"/>
+											<Label width="100%" id="requestTime" text="{vm>requestTime}"  class="myLabel"/>
+											<Label width="100%" id="valid" text="{vm>valid}"  class="myLabel"/>
+											<Label width="100%" id="retries" text="{vm>retries}"  class="myLabel"/>
 										</cells>
 	                                </ColumnListItem>
 	                           </Table>
