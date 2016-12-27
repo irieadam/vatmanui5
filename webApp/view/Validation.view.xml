@@ -55,7 +55,7 @@ height="100%"
 
 	                </content>
 
-	            </Panel>
+	            </Panel>	
 					<IconTabBar selectedKey="all" id="iconTabBar" select="handleIconTabBarSelect">
 	                <items>
 						<IconTabFilter text="requests" count="{vm>/vatNumbers/length}" showAll="true" id="__filter0" key="all" />

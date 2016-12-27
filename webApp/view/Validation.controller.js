@@ -26,8 +26,7 @@ sap.ui.define([
             // server messages
             connection.attachMessage(function (oControlEvent) {
                 var oModel = that.getView().getModel("vm");
-                var requests = oModel.getData().vatNumbers; 
-                debugger;
+                var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
                 console.log("Data!!" + JSON.stringify(data));
                
@@ -98,19 +97,22 @@ sap.ui.define([
         },
 
         onExport: function(evt) {
-          var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
 
-            var client = new XMLHttpRequest();
-            client.open('GET', '/export', true);
+       //   var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
+        var format = that.getView().byId("formatSelection").getSelectedIndex();
+            window.open('/export?format='+format);
+          /**  var client = new XMLHttpRequest();
+            client.open('POST', '/export', true);
             client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
             client.onreadystatechange = function () { 
                 if (client.readyState == 4 && client.status == 401) {
                         sap.m.MessageToast.show("Unauthorized");
                 } else if (client.readyState == 4 && client.status == 200) {
+                
                     // alert('Submitted');
                 }
             }
-            client.send(JSON.stringify(msg)); 
+            client.send(JSON.stringify(msg)); **/
         },
 
         onShowHello: function () {
