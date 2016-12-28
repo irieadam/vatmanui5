@@ -1,0 +1,8 @@
+.thisApp .sapMInput.myInputField {
+  border: none ;
+  background: none
+}
+.thisApp .sapMLabel.myLabel{
+  padding-top : 1em
+}
+

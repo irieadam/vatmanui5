@@ -1,0 +1,25 @@
+<mvc:View height="100%" controllerName="vatmanui5.webApp.view.About"
+    xmlns="sap.m" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:mvc="sap.ui.core.mvc">
+    <App id="app" >
+        <Page title="About" id="aboutPage" enableScrolling="false" floatingFooter="false" showNavButton="true" navButtonPress="onNavBack" >
+            <content>
+                <FlexBox height="100%" alignItems="Center" justifyContent="Center">
+                    <items>
+                        <VBox>
+                            <Text
+		class="sapUiSmallMarginBeginEnd sapUiSmallMarginTop"
+		text="Some details and legal stuff... Apache license : http://www.apache.org/licenses/LICENSE-2.0.txt" />
+                        </VBox>
+                    </items>
+                </FlexBox>
+            </content>
+            <footer>
+                <Toolbar width="100%" id="aboutTb">
+                    <content></content>
+                </Toolbar>
+            </footer>
+        </Page>
+    </App>
+</mvc:View>
