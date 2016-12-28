@@ -8,7 +8,7 @@
                 <FlexBox height="100%" alignItems="Center" justifyContent="Center">
                     <items>
                         <VBox>
-                            <Input id="userId" placeholder="Enter user ..." >
+                            <Input id="userId" placeholder="Enter user ..." />
                             <Input id="pw" type="Password" placeholder="Enter password ..."/>
                             <Button text="Login" press="login"/>
                         </VBox>
