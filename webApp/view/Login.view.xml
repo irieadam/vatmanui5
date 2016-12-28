@@ -8,8 +8,8 @@
                 <FlexBox height="100%" alignItems="Center" justifyContent="Center">
                     <items>
                         <VBox>
-                            <Input id="userId" placeholder="Enter user ..." value="admin@vatvision.com"/>
-                            <Input id="pw" type="Password" placeholder="Enter password ..." value="happyday1"/>
+                            <Input id="userId" placeholder="Enter user ..." >
+                            <Input id="pw" type="Password" placeholder="Enter password ..."/>
                             <Button text="Login" press="login"/>
                         </VBox>
                     </items>
