@@ -4,31 +4,24 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/m/MessageToast",
-    "sap/ui/model/resource/ResourceModel"
+    "sap/ui/model/resource/ResourceModel",
 ], function (Controller, JSONModel, Filter, MessageToast, ResourceModel) {
     "use strict";
 
     return Controller.extend("vatmanui5.webApp.view.Validation", {
-
+        
         onInit: function () {
             that = this;
-        //    debugger;
-
+            // events for file drop
             this.getView().byId("__page0").attachBrowserEvent("dragenter", dragenter, false);
             this.getView().byId("__page0").attachBrowserEvent("dragover", dragover, false);
             this.getView().byId("__page0").attachBrowserEvent("drop", drop, false);
 
-            ///
-
-              // set data model on view
-         
             // ws connection      			
             connection.attachOpen(function (oControlEvent) {
 
                 sap.m.MessageToast.show("connection opened");
-            });
-
-            //   this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode      
+            });  
 
             // server messages
             connection.attachMessage(function (oControlEvent) {
@@ -82,51 +75,54 @@ sap.ui.define([
             var oModel = that.getView().getModel("vm");
             var vm = oModel.getData();
 
-            var batch = {
-                "requestId" : that.guid(),
-                "requesterCountryCode" : vm.requesterCountryCode,
-                "requesterVatNumber" : vm.requesterVatNumber,
-                "vatNumbers" : vm.vatNumbers
-            }
+            if (!vm.fileSelected || vm.requesterCountryCode.length===0 || vm.requesterVatNumber.length===0) {
+            var messages = ["Please provide: "];
 
-            var client = new XMLHttpRequest();
-            client.open('POST', '/process', true);
-            client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-            client.onreadystatechange = function () { 
-                if (client.readyState == 4 && client.status == 401) {
-                   sap.m.MessageToast.show("Unauthorized");
-                } else if (client.readyState == 4 && client.status == 200) {
-                    // alert('Submitted');
+            if (!vm.fileSelected ) {
+                messages.push("vat numbers to process ");
+            };
+            if (vm.requesterCountryCode.length === 0 || vm.requesterVatNumber.length === 0) {
+                that.getView().byId('requestCC').setValueState(sap.ui.core.ValueState.Error);
+                 that.getView().byId('requestV').setValueState(sap.ui.core.ValueState.Error);
+                messages.push(" your vat number");
+            };
+    
+            sap.m.MessageToast.show(messages.toString()) ;
+
+            } else {
+
+
+                var batch = {
+                    "requestId" : that.guid(),
+                    "requesterCountryCode" : vm.requesterCountryCode,
+                    "requesterVatNumber" : vm.requesterVatNumber,
+                    "vatNumbers" : vm.vatNumbers
                 }
+
+                var client = new XMLHttpRequest();
+                client.open('POST', '/process', true);
+                client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+                client.onreadystatechange = function () { 
+                    if (client.readyState == 4 && client.status == 401) {
+                    sap.m.MessageToast.show("Unauthorized");
+                    } else if (client.readyState == 4 && client.status == 200) {
+                        // alert('Submitted');
+                    }
+                }
+                client.send(JSON.stringify(batch));
             }
-            client.send(JSON.stringify(batch));
 
         },
 
         onExport: function(evt) {
 
        //   var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
-        var format = that.getView().byId("formatSelection").getSelectedIndex();
+         var format = that.getView().byId("formatSelection").getSelectedIndex();
             window.open('/export?format='+format);
-          /**  var client = new XMLHttpRequest();
-            client.open('POST', '/export', true);
-            client.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-            client.onreadystatechange = function () { 
-                if (client.readyState == 4 && client.status == 401) {
-                        sap.m.MessageToast.show("Unauthorized");
-                } else if (client.readyState == 4 && client.status == 200) {
-                
-                    // alert('Submitted');
-                }
-            }
-            client.send(JSON.stringify(msg)); **/
         },
 
         onShowHello: function () {
 
-            // send message
-            //	var oModel = sap.ui.getCore().getModel();
-            //	var result = oModel.getData();
             var msg = "TEST MESSAGE";
             if (msg.length > 0) {
                 connection.send(JSON.stringify(
@@ -142,6 +138,19 @@ sap.ui.define([
             //         var sMsg = oBundle.getText("helloMsg", [sRecipient]);
             // show message
             //        MessageToast.show(sMsg);
+        },
+
+        onMenuAction: function(oEvent) {
+            var oItem = oEvent.getParameter("item"),
+                sItemPath = "";
+            switch (oItem.getText()) {
+                case "Logout" : 
+                    that.doLogout();
+                    break;
+                case "About" : 
+                 router.getTargets().display("about");
+                    break;    
+            }
         },
 
         doLogout: function () {
@@ -186,6 +195,17 @@ sap.ui.define([
             that.getView().byId("fileUploader").clear();
             oModel.refresh(true);
 
+        },
+
+        validateText : function (evt) {
+            var src =  evt.getSource()
+             var value = src.getValue();
+
+            if (value.trim().length === 0) {
+                src.setValueState(sap.ui.core.ValueState.Error);
+            } else {
+                src.setValueState(sap.ui.core.ValueState.Success);
+            };
         },
 
         upload: function (evt) {
@@ -325,7 +345,7 @@ function dragover(e) {
 }
 
 function drop(e) {
- debugger;
+
   e.stopPropagation();
   e.preventDefault();
   var dt = e.originalEvent.dataTransfer;

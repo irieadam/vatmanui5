@@ -70,7 +70,12 @@
 				"pattern": "",
 				"name": "login",
 				"target": "login"
-			}],
+			},
+		{
+				"pattern": "validation",
+				"name": "validation",
+				"target": "validation"
+			}	],
 			"targets": {
 				"login": {
 						"viewName": "Login",
@@ -79,6 +84,10 @@
 				"validation" : {
 						"viewName": "Validation",
 						"viewLevel" : 2
+				},
+				"about" : {
+						"viewName": "About",
+						"viewLevel" : 3
 				}
 			}
 		}

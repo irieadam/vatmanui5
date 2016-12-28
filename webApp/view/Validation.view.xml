@@ -7,12 +7,20 @@ height="100%"
 
 <App class="thisApp"> 
 <Page title="VAT Validation" id="__page0" enableScrolling="true" floatingFooter="true" >
-
-	            <headerContent>
-
-	                <Button  text="Logout" width="100px" press="doLogout" icon="sap-icon://log"/>
-
-	            </headerContent>
+	 <headerContent>
+	    <MenuButton icon="sap-icon://menu">
+            <menu>
+                <Menu itemSelected="onMenuAction">
+                    <items>
+                        <MenuItem text="Logout" icon="sap-icon://log" />
+                        <MenuItem text="About" icon="sap-icon://hint" />
+                      
+                    </items>
+                </Menu>
+            </menu>
+      </MenuButton>
+	<!--   <Button  text="Logout" width="100px" press="doLogout" icon="sap-icon://log"/> -->
+	 </headerContent>
 
 	        <content>
 			<Panel id="__panel0">
@@ -41,9 +49,9 @@ height="100%"
 
 	                                    <sap.ui.commons:TextField  xmlns:sap.ui.commons="sap.ui.commons" id="__field1" value="{vm>/requesterVatNumber}"/>
 --> 
-										<Input id="requestCC" width="4em" value="{vm>/requesterCountryCode}"/>
+										<Input id="requestCC" width="4em" value="{vm>/requesterCountryCode}"  liveChange="validateText"/>
 
-										<Input value="{vm>/requesterVatNumber}"/>
+										<Input id="requestV" value="{vm>/requesterVatNumber}" liveChange="validateText"/>
 										 
 	                                </items>
 

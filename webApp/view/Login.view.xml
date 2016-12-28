@@ -3,7 +3,7 @@
     xmlns:l="sap.ui.layout" 
     xmlns:mvc="sap.ui.core.mvc">
     <App id="app" >
-        <Page title="Login" id="__page0" enableScrolling="false" floatingFooter="false">
+        <Page title="Login" id="__page0" enableScrolling="false" floatingFooter="false" >
             <content>
                 <FlexBox height="100%" alignItems="Center" justifyContent="Center">
                     <items>
