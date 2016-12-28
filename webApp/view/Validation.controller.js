@@ -28,7 +28,7 @@ sap.ui.define([
                 var oModel = that.getView().getModel("vm");
                 var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
-                console.log("Data!!" + JSON.stringify(data));
+             //   console.log("Data!!" + JSON.stringify(data));
                
                 if(typeof data.itemId !== 'undefined') {
                     for (var i=0; i<requests.length; i++) {
