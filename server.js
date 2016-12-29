@@ -117,13 +117,15 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                                 } );
                         }).catch(function (e) {
                             console.log(e);
+                            vatRequest.status = 4;
+                            oWs.send(JSON.stringify(vatRequest));
+                            
                         });
                     } else {
                         if (request.status === '3') {
                             request.update({
                                 requestId: requestId,
                             }).then(function () {
-                                oWs.send(JSON.stringify(request));
                                 cb();
                             });
                         } else {
@@ -146,6 +148,8 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                                             });
 
                         }).catch(function (e) {
+                            console.log("?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????!");
+                            oWs.send(JSON.stringify(request));
                             console.log(e);
                         });
                     }
@@ -193,7 +197,7 @@ db.sequelize.sync({
 });
 
 var getWSClient = function (sessionId) {
-
+        // get the ws socket based on the sessionid which the client got when logging in
         for(var i=0 ; i < clients.length; i++ ) {
             if (clients[i].sessionId === sessionId) {
                 return clients[i].ws;

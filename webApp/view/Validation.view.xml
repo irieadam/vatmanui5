@@ -6,7 +6,7 @@ height="100%"
 	xmlns:core="sap.ui.core">
 
 <App class="thisApp"> 
-<Page title="VAT Validation" id="__page0" enableScrolling="true" floatingFooter="true" >
+<Page title="VAT Validation" id="__page0" enableScrolling="false" floatingFooter="true" >
 	 <headerContent>
 	    <MenuButton icon="sap-icon://menu">
             <menu>
@@ -148,19 +148,19 @@ height="100%"
 	        <footer>
 	            <Toolbar width="100%" id="__toolbar3">
 	                <content>
-	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="fileUploader" buttonText="Select File" icon="sap-icon://upload" change="upload"/>
-	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete" press="clear"/>
+	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="fileUploader" buttonText="Select File" icon="sap-icon://upload" change="upload" enabled="{vm>/fileProcessIsAllowed}"/>
+	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete" press="clear" enabled="{vm>/fileProcessIsAllowed}"/>
 	                    <ToolbarSpacer  id="__spacer0"/>
-	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision" press="onProcess" />
+	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision" press="onProcess" enabled="{vm>/validateIsAllowed}" />
 	                    <ToolbarSpacer  id="__spacer0_copy"/>
-	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="0" id="formatSelection">
+	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="0" id="formatSelection" enabled="{vm>/exportIsAllowed}">
 	                        <buttons>
 	                            <RadioButton selected="true" groupName="__group0" text=".xslx" id="__button1"/>
 	                            <RadioButton groupName="__group0" text=".csv" id="__button4"/>
 	                            </buttons>
 	                        
 	                    </RadioButtonGroup>
-	                    <Button text="Export" width="100px" id="__button6" icon="sap-icon://download" press="onExport"/>
+	                    <Button text="Export" width="100px" id="__button6" icon="sap-icon://download" press="onExport" enabled="{vm>/exportIsAllowed}"/>
 	                </content>
 	            </Toolbar>
 	        </footer>

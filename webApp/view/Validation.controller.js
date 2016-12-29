@@ -29,7 +29,8 @@ sap.ui.define([
                 var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
          // console.log("Data!!" + JSON.stringify(data));
-               
+         
+               // TODO check this loop for use of filter, and the oModel should be vm.
                 if(typeof data.itemId !== 'undefined') {
                     for (var i=0; i<requests.length; i++) {
 
@@ -49,6 +50,9 @@ sap.ui.define([
                     }
                 } else {
                     sap.m.MessageToast.show('Processing completed');
+                    oModel.getData().exportIsAllowed = true;
+                    oModel.getData().validateIsAllowed = true;
+                    oModel.getData().fileProcessIsAllowed = true;
                 } 
 
                 oModel.getData().validCount = requests.filter(function(value) { return value.status === "3" }).length;
@@ -106,6 +110,9 @@ sap.ui.define([
                     if (client.readyState == 4 && client.status == 401) {
                     sap.m.MessageToast.show("Unauthorized");
                     } else if (client.readyState == 4 && client.status == 200) {
+                         vm.validateIsAllowed = false;
+                         vm.exportIsAllowed = false;
+                         vm.fileProcessIsAllowed = false;
                         // alert('Submitted');
                     }
                 }
