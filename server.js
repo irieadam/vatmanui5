@@ -12,7 +12,6 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var WebSocketServer = require("ws").Server;
-var oWs;
 
 var PORT = process.env.PORT || 3000
 
@@ -37,23 +36,26 @@ wss.broadcast = function (data) {
 
 var clients = [];
 wss.on("connection", function (ws) {
-    clients.push(ws);   
-    oWs = ws
     
+    var cookies = {};
+
+    if(ws.upgradeReq.headers.cookie!=null) {
+        ws.upgradeReq.headers.cookie.split(';').forEach(function (cookie) {
+            var parts = cookie.match(/(.*?)=(.*)$/)
+            cookies[parts[1].trim()] = (parts[2] || '').trim();
+        });
+    };
+
+    clients.push({
+    sessionId  : cookies.sessionId,
+    ws: ws});   
     
-
-
     ws.on("message", function (message) {
         console.log("received: %s", message);
      
       ws.send(message);
     });
 
-
-    ws.send(JSON.stringify({
-        user: "XS",
-        text: "Hello from Node.js XS Server"
-    }));
 });
 
 // routes
@@ -67,6 +69,8 @@ app.post('/users/login', function (req, res) {
 
 app.delete('/logout', middleware.requireAuthentication, function (req, res) {
     util.doLogout(req, res,db);
+    var id = util.getCookies(req).sessionId;
+    removeWSClient(id);
 });
 
 app.post('/process', middleware.requireAuthentication, function (req, res) {
@@ -75,7 +79,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     var requesterCountry = req.body.requesterCountryCode;
     var vatNumbers = req.body.vatNumbers;
     var sessionId = util.getCookies(req).sessionId;
-    
+    var oWs = getWSClient(sessionId);
 
     res.cookie('lastRequest', requestId);
     res.status(200).send();
@@ -103,10 +107,12 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                             status: '0',
                             retries: 0
                          }).then(function (request) {
-                            util.callVatService(client,request, oWs).then(
+                            util.callVatService(client,request).then(
                                 function () {
+                                    oWs.send(JSON.stringify(request));
                                     cb();
                                 },function (err) {
+                                    oWs.send(JSON.stringify(request));
                                     cb(err);
                                 } );
                         }).catch(function (e) {
@@ -117,6 +123,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                             request.update({
                                 requestId: requestId,
                             }).then(function () {
+                                oWs.send(JSON.stringify(request));
                                 cb();
                             });
                         } else {
@@ -129,10 +136,12 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                                 countryCode: vatRequest.countryCode,
                                 retries: request.retries + 1
                                 }).then(function (request) {
-                                        util.callVatService(client,request, oWs).then(
+                                        util.callVatService(client,request).then(
                                             function (request) {  
+                                                oWs.send(JSON.stringify(request));
                                                 cb();          
                                             },function (err) {
+                                                oWs.send(JSON.stringify(request));
                                                 cb(err);
                                             });
 
@@ -147,6 +156,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
             if (err) {
                 console.log('A file failed to process: ' +  err);
             } else {
+                 console.log('Done !!!: ');
                 var data = { processed : true} 
                 oWs.send(JSON.stringify({ data})); 
             }
@@ -182,3 +192,23 @@ db.sequelize.sync({
 
 });
 
+var getWSClient = function (sessionId) {
+
+        for(var i=0 ; i < clients.length; i++ ) {
+            if (clients[i].sessionId === sessionId) {
+                return clients[i].ws;
+            }
+        }
+
+    };
+
+var removeWSClient = function (sessionId) {
+
+    for(var i=0 ; i < clients.length; i++ ) {
+        if (clients[i].sessionId === sessionId) {
+            clients[i].ws.close();
+            clients.splice(i, 1);
+        }
+    }
+
+};

@@ -1,10 +1,31 @@
 {
     "requestId": "",
-    "requesterCountryCode": "",
-    "requesterVatNumber": "",
+    "requesterCountryCode": "NL",
+    "requesterVatNumber": "855356650B01",
     "validCount" : 0,
     "notValidCount" : 0,
     "failedCount" : 0,
-    "vatNumbers": [
+    "fileSelected" : true,
+    "validateIsAllowed" : true,
+    "vatNumbers": [    {
+            "itemId": "ed62e65d-29fc-7aad-e0e4-6d91dbeca883",
+            "vatNumber": "855356650B01",
+            "countryCode": "NL"
+        },
+        {
+            "itemId": "8267cd62-33b1-91b8-3f43-c02f086cb8d1",
+            "vatNumber": "855356650B02",
+            "countryCode": "DE"
+        },
+        {
+            "itemId": "3126ac7c-38be-9b8f-b7b9-30619bbc14ef",
+            "vatNumber": "855357022B01",
+            "countryCode": "NL"
+        },
+        {
+            "itemId": "d3ad0bd0-6618-1819-2abf-25fcf84934c4",
+            "vatNumber": "855357022B02",
+            "countryCode": "NL"
+        } 
     ]
 }

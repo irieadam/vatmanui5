@@ -20,7 +20,7 @@ sap.ui.define([
             // ws connection      			
             connection.attachOpen(function (oControlEvent) {
 
-                sap.m.MessageToast.show("connection opened");
+             //   sap.m.MessageToast.show("connection opened");
             });  
 
             // server messages
@@ -28,7 +28,7 @@ sap.ui.define([
                 var oModel = that.getView().getModel("vm");
                 var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
-             //   console.log("Data!!" + JSON.stringify(data));
+         // console.log("Data!!" + JSON.stringify(data));
                
                 if(typeof data.itemId !== 'undefined') {
                     for (var i=0; i<requests.length; i++) {
@@ -60,12 +60,12 @@ sap.ui.define([
 
             // error handling
             connection.attachError(function (oControlEvent) {
-                sap.m.MessageToast.show("Websocket connection error");
+                sap.m.MessageToast.show("Server connection error");
             });
 
             // onConnectionClose
             connection.attachClose(function (oControlEvent) {
-                sap.m.MessageToast.show("Websocket connection closed");
+                sap.m.MessageToast.show("Connection to server closed");
             });
 
 
