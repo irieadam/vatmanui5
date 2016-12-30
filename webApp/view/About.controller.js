@@ -1,7 +1,8 @@
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-	"sap/ui/core/routing/History"
+
+   	"sap/ui/core/routing/History"
 ], function (Controller, History) {
     "use strict";
 
@@ -14,11 +15,11 @@ sap.ui.define([
         onNavBack: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
 			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
+			 	window.history.go(-1);
 			} else {
-				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 				oRouter.navTo("validation", true);
 			}
 		}

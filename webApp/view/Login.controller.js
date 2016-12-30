@@ -39,7 +39,8 @@ sap.ui.define([
 
 
                     connection = new sap.ui.core.ws.WebSocket('/node/process');      
-                    router.getTargets().display("validation");
+                   // router.getTargets().display("validation");
+                   router.navTo("validation",true);
                 }
             })
         }

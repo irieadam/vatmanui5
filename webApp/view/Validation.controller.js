@@ -5,7 +5,8 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/m/MessageToast",
     "sap/ui/model/resource/ResourceModel",
-], function (Controller, JSONModel, Filter, MessageToast, ResourceModel) {
+   	"sap/ui/core/routing/History"
+], function (Controller, JSONModel, Filter, MessageToast, ResourceModel,History) {
     "use strict";
 
     return Controller.extend("vatmanui5.webApp.view.Validation", {
@@ -155,7 +156,7 @@ sap.ui.define([
                     that.doLogout();
                     break;
                 case "About" : 
-                 router.getTargets().display("about");
+                 router.navTo("about",true);
                     break;    
             }
         },

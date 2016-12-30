@@ -12,7 +12,7 @@
 	},
     "dataSources": {
 			"initData": {
-				"uri": "model/testmodel.json",
+				"uri": "model/init.json",
 				"type": "JSON"
 			}
     }
@@ -75,6 +75,11 @@
 				"pattern": "validation",
 				"name": "validation",
 				"target": "validation"
+			}	,
+		{
+				"pattern": "about",
+				"name": "about",
+				"target": "about"
 			}	],
 			"targets": {
 				"login": {
