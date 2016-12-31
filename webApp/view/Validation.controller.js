@@ -19,14 +19,7 @@ sap.ui.define([
             this.getView().byId("__page0").attachBrowserEvent("drop", drop, false);
 
             // ws connection    
-            if (typeof connection !== 'undefined') {   			
-                connection.attachOpen(function (oControlEvent) {
-               });  
-            } else {
-                connection = new sap.ui.core.ws.WebSocket('/node/process'); 
-                connection.attachOpen(function (oControlEvent) {
-               });  
-            }
+            getWSConnection();
             // server messages
             connection.attachMessage(function (oControlEvent) {
                 var oModel = that.getView().getModel("vm");
@@ -81,6 +74,9 @@ sap.ui.define([
         },
 
         onProcess: function(evt) {
+            if(typeof connection === 'undefined') {
+                getWSConnection();
+            }
             var oModel = that.getView().getModel("vm");
             var vm = oModel.getData();
 
@@ -365,3 +361,14 @@ function drop(e) {
 
   that.handleFiles(files);
 }
+
+function getWSConnection () {
+    if (typeof connection !== 'undefined') {   			
+        connection.attachOpen(function (oControlEvent) {
+        });  
+    } else {
+        connection = new sap.ui.core.ws.WebSocket('/node/process'); 
+        connection.attachOpen(function (oControlEvent) {
+        });  
+    }
+} 
