@@ -171,7 +171,7 @@ sap.ui.define([
                 contentType: "application/json",
                 url: "/logout",
                 success: function () {
-                    router.getTargets().display("login");
+                    router.navTo("login");
                 }
             })
         },

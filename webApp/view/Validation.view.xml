@@ -7,7 +7,7 @@ height="100%"
 	xmlns:core="sap.ui.core">
 
 <App class="thisApp"> 
-<Page title="VAT Validation" id="__page0" enableScrolling="false" floatingFooter="true" >
+<Page title="VAT Validation" id="__page0" enableScrolling="true" floatingFooter="true" >
 	 <headerContent>
 	    <MenuButton icon="sap-icon://menu">
             <menu>
@@ -67,7 +67,7 @@ height="100%"
 	            </Panel>	
 					<IconTabBar selectedKey="all" id="iconTabBar" select="handleIconTabBarSelect">
 	                <items>
-						<IconTabFilter text="requests" count="{vm>/vatNumbers/length}" showAll="true" id="__filter0" key="all" />
+						<IconTabFilter text="requests" count="{= ${vm>/validCount}+${vm>/notValidCount}+${vm>/failedCount}} / {vm>/vatNumbers/length} " showAll="true" id="__filter0" key="all" />
 
 							  <!-- <core:Fragment id="requestsTable" fragmentName="vatmanui5.webApp.view.RequestsTable" type="XML" /> -->
 	                  <!--       
@@ -84,54 +84,56 @@ height="100%"
 
 					<t:Table noDataText="no data" 
 								   id="requestsTable" 
-								   showSeparators="Inner" 
+								   showSeparators="Inner"
+								   enableColumnReordering="false"
 								   rows="{vm>/vatNumbers}" 
-								   visibleRowCount="7">
+								   visibleRowCount="10"
+								   showColumnVisibilityMenu="true">
  									
 									<t:columns>
-										<t:Column id="countryCol" width="2em">
+										<t:Column id="countryCol" width="2em" resizable="false">
 												<Label text="Country"/>
 												    <t:template>
 														<Input width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="vatnumCol" width="3em">
+										<t:Column id="vatnumCol" width="3em"  resizable="false">
 										  <Label text="VAT Number"/>
 											 <t:template>
 												<Input width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
 											</t:template>
 										</t:Column>	
-										<t:Column id="nameCol" width="4em">
+										<t:Column id="nameCol" width="4em" resizable="false">
 												<Label text="Name"/>
 												    <t:template>
 													  <Label width="100%" id="traderName" text="{vm>traderName}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="addressCol" width="6em">
+										<t:Column id="addressCol" width="6em" resizable="false">
 												<Label text="Address" />
 												    <t:template>
 														<Label width="100%" id="traderAddress" text="{vm>traderAddress}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="confirmationCol" width="3em">
+										<t:Column id="confirmationCol" width="3em" resizable="false">
 												<Label text="Confirmation"/>
 												    <t:template>
 															<Label width="100%" id="confirmation" text="{vm>confirmation}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="requestDateCol" width="3em">
+										<t:Column id="requestDateCol" width="3em"  resizable="false">
 												<Label text="Request Date"/>
 												    <t:template>
 													<Label width="100%" id="requestTime" text="{vm>requestTime}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="validCol" width="2em">
+										<t:Column id="validCol" width="2em"  resizable="false">
 												<Label text="Valid"/>
 												    <t:template>
 													   <Label width="100%" id="valid" text="{vm>valid}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="retriesCol" width="2em">
+										<t:Column id="retriesCol" width="2em"  resizable="false">
 												<Label text="Retries"/>
 												    <t:template>
 														<Label width="100%" id="retries" text="{vm>retries}"  class="myLabel"/>

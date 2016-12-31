@@ -22,19 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, 'webApp')));
 
 //sockets 
+var clients = [];
 var wss = new WebSocketServer({ 
     server: http, 
     path: "/node/process"
 });
-
-/**
-wss.broadcast = function (data) {
-    for (var i in this.clients)
-        this.clients[i].send(data);
-    console.log("sent: %s", data);
-}; */
-
-var clients = [];
 wss.on("connection", function (ws) {
     
     var cookies = {};
@@ -181,7 +173,7 @@ app.get('/export', middleware.requireAuthentication, function (req, res) {
 
 });
 
-
+// db init
 db.sequelize.sync({
     force: true
  }).then(function () {
@@ -202,6 +194,7 @@ db.sequelize.sync({
 
 });
 
+//shizzle
 var getWSClient = function (sessionId) {
         // get the ws socket based on the sessionid which the client got when logging in
         for(var i=0 ; i < clients.length; i++ ) {
