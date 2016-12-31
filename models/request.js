@@ -94,6 +94,10 @@ module.exports = function (sequelize, DataTypes) {
     retries: {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+    error: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
 

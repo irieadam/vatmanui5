@@ -110,7 +110,8 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                             requesterVatNumber: requesterNumber,
                             requesterCountryCode: requesterCountry,
                             status: '0',
-                            retries: 0
+                            retries: 0,
+                            error: ""
                          }).then(function (request) {
                             util.callVatService(client,request).then(
                                 function () {
