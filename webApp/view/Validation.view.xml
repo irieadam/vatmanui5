@@ -2,6 +2,7 @@
 height="100%"
     controllerName="vatmanui5.webApp.view.Validation"
     xmlns="sap.m"
+	xmlns:t="sap.ui.table"
     xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core">
 
@@ -81,69 +82,63 @@ height="100%"
 
 	            </IconTabBar>
 
-				<Table noDataText="no data" 
+					<t:Table noDataText="no data" 
 								   id="requestsTable" 
 								   showSeparators="Inner" 
-								   items="{vm>/vatNumbers}" 
-								   height="60em">
+								   rows="{vm>/vatNumbers}" 
+								   visibleRowCount="7">
  									
-									<columns>
-										<Column id="__column1" width="4em">
-											<header>
+									<t:columns>
+										<t:Column id="countryCol" width="2em">
 												<Label text="Country"/>
-											</header>
-										</Column>
-										<Column id="__column0" width="10em">
-											<header>
-												<Label text="VAT Number"/>
-											</header>
-										</Column>
-										<Column id="__column2">
-											<header>
-												<Label text="Name" />
-											</header>
-										</Column>
-										<Column id="__column3">
-											<header>
+												    <t:template>
+														<Input width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
+													</t:template>
+										</t:Column>	
+										<t:Column id="vatnumCol" width="3em">
+										  <Label text="VAT Number"/>
+											 <t:template>
+												<Input width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
+											</t:template>
+										</t:Column>	
+										<t:Column id="nameCol" width="4em">
+												<Label text="Name"/>
+												    <t:template>
+													  <Label width="100%" id="traderName" text="{vm>traderName}"  class="myLabel"/>
+													</t:template>
+										</t:Column>	
+										<t:Column id="addressCol" width="6em">
 												<Label text="Address" />
-											</header>
-										</Column>
-										<Column id="__column4" width="10em">
-											<header>
-												<Label text="Confirmation" />
-											</header>
-										</Column>
-										<Column id="__column5" width="8em">
-											<header>
-												<Label text="Request Date" />
-											</header>
-										</Column>
-										<Column id="__column6" width="6em">
-											<header>
-												<Label text="Valid" />
-											</header>
-										</Column>
-										<Column id="__column7" width="4em">
-											<header>
+												    <t:template>
+														<Label width="100%" id="traderAddress" text="{vm>traderAddress}"  class="myLabel"/>
+													</t:template>
+										</t:Column>	
+										<t:Column id="confirmationCol" width="3em">
+												<Label text="Confirmation"/>
+												    <t:template>
+															<Label width="100%" id="confirmation" text="{vm>confirmation}"  class="myLabel"/>
+													</t:template>
+										</t:Column>	
+										<t:Column id="requestDateCol" width="3em">
+												<Label text="Request Date"/>
+												    <t:template>
+													<Label width="100%" id="requestTime" text="{vm>requestTime}"  class="myLabel"/>
+													</t:template>
+										</t:Column>	
+										<t:Column id="validCol" width="2em">
+												<Label text="Valid"/>
+												    <t:template>
+													   <Label width="100%" id="valid" text="{vm>valid}"  class="myLabel"/>
+													</t:template>
+										</t:Column>	
+										<t:Column id="retriesCol" width="2em">
 												<Label text="Retries"/>
-											</header>
-										</Column>
-									</columns>
-	                      
-									<ColumnListItem id="__item3">										
-										<cells >
-											<Input ariaLabelledBy="__xmlview0--__label3" width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
-											<Input ariaLabelledBy="__xmlview0--__label0" width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
-											<Label width="100%" id="traderName" text="{vm>traderName}"  class="myLabel"/>
-											<Label width="100%" id="traderAddress" text="{vm>traderAddress}"  class="myLabel"/>
-											<Label width="100%" id="confirmation" text="{vm>confirmation}"  class="myLabel"/>
-											<Label width="100%" id="requestTime" text="{vm>requestTime}"  class="myLabel"/>
-											<Label width="100%" id="valid" text="{vm>valid}"  class="myLabel"/>
-											<Label width="100%" id="retries" text="{vm>retries}"  class="myLabel"/>
-										</cells>
-	                                </ColumnListItem>
-	                           </Table>
-
+												    <t:template>
+														<Label width="100%" id="retries" text="{vm>retries}"  class="myLabel"/>
+													</t:template>
+										</t:Column>	
+									</t:columns>
+	                           </t:Table>
 	        </content>
 	        <footer>
 	            <Toolbar width="100%" id="__toolbar3">

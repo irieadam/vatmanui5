@@ -36,9 +36,7 @@ sap.ui.define([
                     MessageToast.show("Authentication Failed");
                 },
                 success: function () {
-
-
-                    connection = new sap.ui.core.ws.WebSocket('/node/process');      
+                   connection = new sap.ui.core.ws.WebSocket('/node/process');      
                    // router.getTargets().display("validation");
                    router.navTo("validation",true);
                 }

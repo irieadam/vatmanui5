@@ -46,9 +46,14 @@ wss.on("connection", function (ws) {
         });
     };
 
-    clients.push({
-    sessionId  : cookies.sessionId,
-    ws: ws});   
+   var client = clients.filter(function(value) { return value.sessionId === cookies.sessionId });
+   if (typeof client[0] === 'undefined') {
+           clients.push({
+             sessionId  : cookies.sessionId,
+             ws: ws});   
+   } else {
+       client[0].ws = ws
+   }
     
     ws.on("message", function (message) {
         console.log("received: %s", message);

@@ -18,19 +18,23 @@ sap.ui.define([
             this.getView().byId("__page0").attachBrowserEvent("dragover", dragover, false);
             this.getView().byId("__page0").attachBrowserEvent("drop", drop, false);
 
-            // ws connection      			
-            connection.attachOpen(function (oControlEvent) {
-
-             //   sap.m.MessageToast.show("connection opened");
-            });  
-
+            // ws connection    
+            if (typeof connection !== 'undefined') {   			
+                connection.attachOpen(function (oControlEvent) {
+               });  
+            } else {
+                connection = new sap.ui.core.ws.WebSocket('/node/process'); 
+                connection.attachOpen(function (oControlEvent) {
+               });  
+            }
             // server messages
             connection.attachMessage(function (oControlEvent) {
                 var oModel = that.getView().getModel("vm");
                 var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
-         // console.log("Data!!" + JSON.stringify(data));
-         
+              
+            //    console.log("Data!!" + JSON.stringify(data));
+
                // TODO check this loop for use of filter, and the oModel should be vm.
                 if(typeof data.itemId !== 'undefined') {
                     for (var i=0; i<requests.length; i++) {
@@ -173,7 +177,7 @@ sap.ui.define([
         },
 
         handleIconTabBarSelect: function (oEvent) {
-            var oBinding = that.getView().byId("requestsTable").getBinding("items"),
+            var oBinding = that.getView().byId("requestsTable").getBinding("rows"),
 				sKey = oEvent.getParameter("key"),
 				oFilter;
 			if (sKey === "valid") {

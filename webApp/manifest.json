@@ -46,7 +46,7 @@
 		}
 	  },
        "vm": {
-		"type": "sap.ui.model.json.JSONModel",
+	        	"type": "sap.ui.model.json.JSONModel",
         "dataSource": "initData"
 	  }
 	},
