@@ -68,13 +68,16 @@ sap.ui.define([
             // onConnectionClose
             connection.attachClose(function (oControlEvent) {
                 sap.m.MessageToast.show("Connection to server closed");
+                if (!that.getView().getModel("vm").getData().loggedOut) {
+                    getWSConnection();
+                }
             });
 
 
         },
 
         onProcess: function(evt) {
-            if(typeof connection === 'undefined') {
+            if(typeof connection === 'undefined' || connection.getReadyState() !== 1 ) {
                 getWSConnection();
             }
             var oModel = that.getView().getModel("vm");
@@ -88,7 +91,7 @@ sap.ui.define([
             };
             if (vm.requesterCountryCode.length === 0 || vm.requesterVatNumber.length === 0) {
                 that.getView().byId('requestCC').setValueState(sap.ui.core.ValueState.Error);
-                 that.getView().byId('requestV').setValueState(sap.ui.core.ValueState.Error);
+                that.getView().byId('requestV').setValueState(sap.ui.core.ValueState.Error);
                 messages.push(" your vat number");
             };
     
@@ -162,11 +165,13 @@ sap.ui.define([
         },
 
         doLogout: function () {
+            that.getView().getModel("vm").getData().loggedOut = true;
             jQuery.ajax({
                 type: "DELETE",
                 contentType: "application/json",
                 url: "/logout",
                 success: function () {
+                    
                     router.navTo("login");
                 }
             })

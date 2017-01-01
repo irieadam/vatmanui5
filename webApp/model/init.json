@@ -10,5 +10,6 @@
     "exportIsAllowed" : false,
     "fileProcessIsAllowed" : true,
     "processingStatus" : 0,
+    "loggedOut" : true,
     "vatNumbers": []
 }
