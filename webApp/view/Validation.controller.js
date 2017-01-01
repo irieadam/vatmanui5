@@ -374,7 +374,7 @@ function drop(e) {
 }
 
 function getWSConnection () {
-    if (typeof connection !== 'undefined' || connection.getReadyState() !== 1) {   			
+    if (typeof connection === 'undefined' || connection.getReadyState() !== 1) {   			
         connection = new sap.ui.core.ws.WebSocket('/node/process'); 
         connection.attachOpen(function (oControlEvent) {
         });  
