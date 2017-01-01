@@ -171,7 +171,7 @@ sap.ui.define([
                 contentType: "application/json",
                 url: "/logout",
                 success: function () {
-                    debugger;
+                   
                     initModel();
                     router.navTo("login");
                 }
@@ -369,10 +369,7 @@ function drop(e) {
 }
 
 function getWSConnection () {
-    if (typeof connection !== 'undefined') {   			
-        connection.attachOpen(function (oControlEvent) {
-        });  
-    } else {
+    if (typeof connection !== 'undefined' || connection.getReadyState() !== 1) {   			
         connection = new sap.ui.core.ws.WebSocket('/node/process'); 
         connection.attachOpen(function (oControlEvent) {
         });  
