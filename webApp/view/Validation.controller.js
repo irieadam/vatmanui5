@@ -171,7 +171,8 @@ sap.ui.define([
                 contentType: "application/json",
                 url: "/logout",
                 success: function () {
-                    
+                    debugger;
+                    initModel();
                     router.navTo("login");
                 }
             })
@@ -377,3 +378,9 @@ function getWSConnection () {
         });  
     }
 } 
+
+function initModel() {
+ that.getView().byId("fileUploader").clear();
+ that.getView().getModel("vm").loadData('/model/init.json');
+     
+}
