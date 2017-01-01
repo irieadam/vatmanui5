@@ -12,7 +12,7 @@
 	},
     "dataSources": {
 			"initData": {
-				"uri": "model/testmodel.json",
+				"uri": "model/init.json",
 				"type": "JSON"
 			}
     }
