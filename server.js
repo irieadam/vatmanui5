@@ -47,7 +47,10 @@ wss.on("connection", function (ws) {
    } else {
        client[0].ws = ws
    }
-    console.log("clients : " + clients.toString());
+    for(var j = 0; j < clients.length ; j++ ) {
+        console.log(clients[j].sessionId +  '_____>>>>>' + clients[j].ws._socket._idleTimeout );
+    }
+
     ws.on("message", function (message) {
         console.log("received: %s", message);
      
@@ -78,6 +81,8 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     var vatNumbers = req.body.vatNumbers;
     var sessionId = util.getCookies(req).sessionId;
     var oWs = getWSClient(sessionId);
+
+    console.log("sending to : "  + sessionId);
 
     res.cookie('lastRequest', requestId);
     res.status(200).send();
