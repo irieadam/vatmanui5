@@ -5,6 +5,7 @@
     "validCount" : 0,
     "notValidCount" : 0,
     "failedCount" : 0,
+    "processedCount" : 0,
     "fileSelected" : true,
     "validateIsAllowed" : true,
     "exportIsAllowed" : true,

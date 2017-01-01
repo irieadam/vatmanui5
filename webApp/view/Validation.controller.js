@@ -30,6 +30,7 @@ sap.ui.define([
 
                // TODO check this loop for use of filter, and the oModel should be vm.
                 if(typeof data.itemId !== 'undefined') {
+
                     for (var i=0; i<requests.length; i++) {
 
                         if (requests[i].itemId === data.itemId) {
@@ -43,6 +44,7 @@ sap.ui.define([
                             if (data.status === "3") {
                                 requests[i].editable = false;
                             } 
+                            oModel.getData().processedCount++;
                             break;
                         }
                     }
@@ -82,6 +84,7 @@ sap.ui.define([
             }
             var oModel = that.getView().getModel("vm");
             var vm = oModel.getData();
+            vm.processedCount = vm.vatNumbers.filter(function(value) { return value.status === "3" }).length;
 
             if (!vm.fileSelected || vm.requesterCountryCode.length===0 || vm.requesterVatNumber.length===0) {
             var messages = ["Please provide: "];
