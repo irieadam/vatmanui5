@@ -47,7 +47,7 @@ wss.on("connection", function (ws) {
    } else {
        client[0].ws = ws
    }
-    
+    console.log("clients : " + clients.toString());
     ws.on("message", function (message) {
         console.log("received: %s", message);
      
