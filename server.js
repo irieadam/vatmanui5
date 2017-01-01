@@ -30,6 +30,7 @@ var wss = new WebSocketServer({
 wss.on("connection", function (ws) {
     
     var cookies = {};
+    ws._socket._idleTimeout = 6000000;
 
     if(ws.upgradeReq.headers.cookie!=null) {
         ws.upgradeReq.headers.cookie.split(';').forEach(function (cookie) {

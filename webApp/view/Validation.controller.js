@@ -13,6 +13,7 @@ sap.ui.define([
         
         onInit: function () {
             that = this;
+            
             // events for file drop
             this.getView().byId("__page0").attachBrowserEvent("dragenter", dragenter, false);
             this.getView().byId("__page0").attachBrowserEvent("dragover", dragover, false);
@@ -20,6 +21,7 @@ sap.ui.define([
 
             // ws connection    
             getWSConnection();
+            
             // server messages
             connection.attachMessage(function (oControlEvent) {
                 var oModel = that.getView().getModel("vm");
