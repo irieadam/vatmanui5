@@ -68,7 +68,7 @@ height="100%"
 					<IconTabBar selectedKey="all" id="iconTabBar" select="handleIconTabBarSelect">
 	                <items>
 				<!--		<IconTabFilter text="requests" count="{= ${vm>/validCount}+${vm>/notValidCount}+${vm>/failedCount}} / {vm>/vatNumbers/length} " showAll="true" id="__filter0" key="all" /> -->
-						<IconTabFilter text="requests" count="{vm>/processedCount} / {vm>/vatNumbers/length} " showAll="true" id="__filter0" key="all" />
+						<IconTabFilter text="vat numbers" count="{vm>/processedCount} / {vm>/vatNumbers/length} " showAll="true" id="__filter0" key="all" />
 	                
 	                    <IconTabFilter text="valid" count="{vm>/validCount}" icon="sap-icon://accept" iconColor="Positive" id="__filter2" key="valid"/>
 
