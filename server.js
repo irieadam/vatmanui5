@@ -117,6 +117,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                         }).catch(function (e) {
                             console.log(e);
                             vatRequest.status = 4;
+                            console.log(vatRequest.toString());
                             oWs.send(JSON.stringify(vatRequest));
                             
                         });

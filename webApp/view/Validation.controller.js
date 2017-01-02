@@ -224,7 +224,7 @@ sap.ui.define([
             if (value.trim().length === 0) {
                 src.setValueState(sap.ui.core.ValueState.Error);
             } else {
-                src.setValueState(sap.ui.core.ValueState.Success);
+                src.setValueState(sap.ui.core.ValueState.None);
             };
         },
 
