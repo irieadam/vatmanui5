@@ -21,6 +21,7 @@ sap.ui.define([
 
             // ws connection    
             getWSConnection();
+            keepAlive();
             
             // server messages
             connection.attachMessage(function (oControlEvent) {
@@ -131,7 +132,6 @@ sap.ui.define([
         },
 
         onExport: function(evt) {
-
        //   var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
          var format = that.getView().byId("formatSelection").getSelectedIndex();
             window.open('/export?format='+format);
@@ -383,6 +383,14 @@ function getWSConnection () {
 
 function initModel() {
  that.getView().byId("fileUploader").clear();
- that.getView().getModel("vm").loadData('/model/init.json');
-     
+ that.getView().getModel("vm").loadData('/model/init.json'); 
+}
+
+function keepAlive() {
+    setInterval(function() {
+        if (connection.getReadyState() === 1) {
+           var ping = { ping: "pong"};
+           connection.send('ping');
+        }
+    }, 30000);
 }
