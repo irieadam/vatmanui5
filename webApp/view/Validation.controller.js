@@ -210,6 +210,7 @@ sap.ui.define([
             vm.validCount = 0;
             vm.notValidCount = 0;
             vm.failedCount = 0;
+            vm.processedCount = 0;
             vm.vatNumbers = [];
             that.getView().byId("fileUploader").clear();
             oModel.refresh(true);
