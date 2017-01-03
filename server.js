@@ -116,10 +116,12 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                                 } );
                         }).catch(function (e) {
                             console.log(e);
-                            vatRequest.status = 4;
+                            vatRequest.updatedAt = "         ";
+                            vatRequest.status = "4";
+                            vatRequest.valid = "Failed";
                             console.log(vatRequest.toString());
                             oWs.send(JSON.stringify(vatRequest));
-                            
+                            cb();
                         });
                     } else {
                         if (request.status === '3') {
