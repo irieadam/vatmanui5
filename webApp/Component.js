@@ -19,6 +19,8 @@ sap.ui.define([
             // create the views based on the url/hash
          this.getRouter().initialize();
          router =  this.getRouter();
+
+         sap.ui.getCore().getConfiguration().setLanguage("en-EN");
       }
    });
 });

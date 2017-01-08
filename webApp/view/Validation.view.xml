@@ -84,7 +84,8 @@ height="100%"
 								   enableColumnReordering="false"
 								   rows="{vm>/vatNumbers}" 
 								   visibleRowCount="10"
-								   showColumnVisibilityMenu="true">
+								   showColumnVisibilityMenu="true"
+								   enableSelectAll="true">
  									
 									<t:columns>
 										<t:Column id="countryCol" width="2em" resizable="false">
