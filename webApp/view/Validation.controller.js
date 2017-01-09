@@ -101,7 +101,7 @@ sap.ui.define([
                 messages.push(" your vat number");
             };
     
-            sap.m.MessageToast.show(messages.toString()) ;
+            sap.m.MessageToast.show(messages.toString().replace(","," ")) ;
 
             } else {
 
