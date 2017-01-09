@@ -90,7 +90,7 @@ sap.ui.define([
             vm.processedCount = vm.vatNumbers.filter(function(value) { return value.status === "3" }).length;
 
             if (!vm.fileSelected || vm.requesterCountryCode.length===0 || vm.requesterVatNumber.length===0) {
-            var messages = ["Please provide: "];
+            var messages = ["Please provide"];
 
             if (!vm.fileSelected ) {
                 messages.push("vat numbers to process ");
@@ -98,7 +98,7 @@ sap.ui.define([
             if (vm.requesterCountryCode.length === 0 || vm.requesterVatNumber.length === 0) {
                 that.getView().byId('requestCC').setValueState(sap.ui.core.ValueState.Error);
                 that.getView().byId('requestV').setValueState(sap.ui.core.ValueState.Error);
-                messages.push(" your vat number");
+                messages.push(" your vat number.");
             };
     
             sap.m.MessageToast.show(messages.toString().replace(","," ")) ;
