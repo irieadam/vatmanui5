@@ -53,13 +53,6 @@ wss.on("connection", function (ws) {
     //   /  console.log(message.toString());
     });
 
-    ws.on("close", function (message) {
-        
-    console.log("Client Disconnected");
-    });
-
-    
-
 });
 
 // routes
