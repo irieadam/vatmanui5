@@ -86,51 +86,60 @@ height="100%"
 								   visibleRowCount="10"
 								   showColumnVisibilityMenu="true"
 								   enableSelectAll="true">
- 									
+		
+								<t:toolbar>
+								<Toolbar>
+									<content>
+									<ToolbarSpacer/>
+									<Button id="addRow" icon="sap-icon://add" tooltip="Add a row" press="addRow"/>
+									<Button id="deleteRows" icon="sap-icon://less" tooltip="Delete selected rows" press="deleteRows"/>
+									</content>
+								</Toolbar>
+								</t:toolbar>
 									<t:columns>
-										<t:Column id="countryCol" width="2em" resizable="false">
+										<t:Column id="countryCol" width="2em" resizable="false" sortProperty="countryCode" filterProperty="countryCode">
 												<Label text="Country"/>
 												    <t:template>
 														<Input width="100%" id="countryCode" value="{vm>countryCode}" editable="{path:'vm>editable'}"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="vatnumCol" width="3em"  resizable="false">
+										<t:Column id="vatnumCol" width="3em"  resizable="false" sortProperty="vatNumber" filterProperty="vatNumber">
 										  <Label text="VAT Number"/>
 											 <t:template>
 												<Input width="100%" id="vatNumber" value="{vm>vatNumber}" editable="{path:'vm>editable'}"/>
 											</t:template>
 										</t:Column>	
-										<t:Column id="nameCol" width="4em" resizable="false">
+										<t:Column id="nameCol" width="4em" resizable="false" sortProperty="traderName" filterProperty="traderName">
 												<Label text="Name"/>
 												    <t:template>
 													  <Label width="100%" id="traderName" text="{vm>traderName}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="addressCol" width="6em" resizable="false">
+										<t:Column id="addressCol" width="6em" resizable="false" sortProperty="traderAddress" filterProperty="traderAddress">
 												<Label text="Address" />
 												    <t:template>
 														<Label width="100%" id="traderAddress" text="{vm>traderAddress}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="confirmationCol" width="3em" resizable="false">
+										<t:Column id="confirmationCol" width="3em" resizable="false" sortProperty="confirmation" filterProperty="confirmation">
 												<Label text="Confirmation"/>
 												    <t:template>
 															<Label width="100%" id="confirmation" text="{vm>confirmation}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="requestDateCol" width="3em"  resizable="false">
+										<t:Column id="requestDateCol" width="3em"  resizable="false" sortProperty="requestTime" filterProperty="requestTime">
 												<Label text="Request Date"/>
 												    <t:template>
 													<Label width="100%" id="requestTime" text="{vm>requestTime}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="validCol" width="2em"  resizable="false">
+										<t:Column id="validCol" width="2em"  resizable="false" sortProperty="valid" filterProperty="valid">
 												<Label text="Valid"/>
 												    <t:template>
 													   <Label width="100%" id="valid" text="{vm>valid}"  class="myLabel"/>
 													</t:template>
 										</t:Column>	
-										<t:Column id="retriesCol" width="2em"  resizable="false">
+										<t:Column id="retriesCol" width="2em"  resizable="false" sortProperty="retries" filterProperty="retries">
 												<Label text="Retries"/>
 												    <t:template>
 														<Label width="100%" id="retries" text="{vm>retries}"  class="myLabel"/>
@@ -144,7 +153,8 @@ height="100%"
 	                <content>
 	                    <sap.ui.unified:FileUploader  xmlns:sap.ui.unified="sap.ui.unified" id="fileUploader" buttonText="Select File" icon="sap-icon://upload" change="upload" enabled="{vm>/fileProcessIsAllowed}"/>
 	                    <Button  text="Clear" width="100px" id="__button3" icon="sap-icon://delete" press="clear" enabled="{vm>/fileProcessIsAllowed}"/>
-	                    <ToolbarSpacer  id="__spacer0"/>
+					
+						<ToolbarSpacer  id="__spacer3"/>
 	                    <Button  ariaLabelledBy="__xmlview0--__label2" text="Validate" width="10em" id="__button2" icon="sap-icon://provision" press="onProcess" enabled="{vm>/validateIsAllowed}" />
 	                    <ToolbarSpacer  id="__spacer0_copy"/>
 	                    <RadioButtonGroup  width="11em" columns="2" selectedIndex="0" id="formatSelection" enabled="{vm>/exportIsAllowed}">

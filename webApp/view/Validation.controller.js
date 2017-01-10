@@ -213,8 +213,74 @@ sap.ui.define([
             vm.processedCount = 0;
             vm.vatNumbers = [];
             that.getView().byId("fileUploader").clear();
+      
+/**
+            var oTable = this.getView().byId("requestsTable");
+            oTable.setEnableGrouping(false);
+            var cols = oTable.getColumns();
+            for (var col in cols ) {
+                cols[col].setGrouped(false);
+            }
+            var oListBinding = oTable.getBinding();
+            oListBinding.aSorters = null;
+            oListBinding.aFilters = null;
             oModel.refresh(true);
+            oTable.setEnableGrouping(true);
+ */
+            oModel.refresh(true);
+        },
 
+        deleteRows : function (evt) {
+            var oTable = that.byId("requestsTable");
+            var aIndices = oTable.getSelectedIndices();
+            var oModel = that.getView().getModel("vm")
+            var oData = oModel.getData().vatNumbers;
+            var oRow, oRowData, oRemoved;
+            if (aIndices.length > 0) {
+                    // get the selected row data from the (json) model
+                  for (var j in aIndices) {
+                        oRow = oTable.getRows()[j];
+                        oRowData = oRow.getBindingContext("vm").getObject();
+
+                        for (var i=0; i<oData.length; i++){
+                            if(oData[i].itemId === oRowData.itemId){
+                                // we found the right entry, now remove it from the model
+                                oRemoved = oData.splice(i, 1);
+                                oTable.clearSelection();
+                                if (oData.length === 0) {
+                                   oModel.getData().validateIsAllowed = false; 
+                                }
+                                oModel.refresh();
+                                return;
+                            }
+                        }
+                     }  
+                } else {
+                    sap.m.MessageToast.show('Please select a row');
+                    return;
+                }
+        },
+
+        addRow : function (evt) {
+            var oModel = that.getView().getModel("vm")
+            var oData = oModel.getData().vatNumbers;
+
+            oData.unshift({
+                itemId: that.guid(),
+                countryCode: '',
+                vatNumber: '',
+                traderName: '',
+                traderAddress: '',
+                confirmation: '',
+                requestTime: '',
+                valid: '',
+                status: '1',
+                retries: 0,
+                editable: true
+
+            });
+            oModel.getData().validateIsAllowed = true;
+            oModel.refresh();
         },
 
         validateText : function (evt) {
