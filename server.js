@@ -13,8 +13,7 @@ var app = express();
 var http = require('http').Server(app);
 var WebSocketServer = require("ws").Server;
 
-var PORT = process.env.PORT || 3000;
-var proceed = true;
+var PORT = process.env.PORT || 3000
 
 // middleware
 app.use(cookieParser());
@@ -54,9 +53,9 @@ wss.on("connection", function (ws) {
     //   /  console.log(message.toString());
     });
 
-      ws.on("close", function (message) {
-      proceed = false;
-      console.log("Client Disconnected");
+    ws.on("close", function (message) {
+        
+    console.log("Client Disconnected");
     });
 
     
@@ -85,14 +84,14 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     var vatNumbers = req.body.vatNumbers;
     var sessionId = util.getCookies(req).sessionId;
     var oWs = getWSClient(sessionId);
+
     res.cookie('lastRequest', requestId);
     res.status(200).send();
-    proceed = true;
 
     util.getSoapClient().then(function(client){
 
             async.eachLimit(vatNumbers, 28, function (vatRequest, cb) {
-              if(proceed) {  
+
                 db.request.findOne({
                     where: {
                     itemId: vatRequest.itemId
@@ -165,9 +164,6 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                 }
             
             });
-          } else {
-              console.log("Client connection closed , stopping process")
-          }
         }, function (err) {
             if (err) {
                 console.log('A file failed to process: ' +  err);
