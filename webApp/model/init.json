@@ -10,6 +10,7 @@
     "validateIsAllowed" : false,
     "exportIsAllowed" : false,
     "fileProcessIsAllowed" : true,
+    "tableEditIsAllowed" : true,
     "processingStatus" : 0,
     "loggedOut" : true,
     "vatNumbers": []

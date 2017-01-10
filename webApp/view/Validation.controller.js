@@ -56,6 +56,7 @@ sap.ui.define([
                     oModel.getData().exportIsAllowed = true;
                     oModel.getData().validateIsAllowed = true;
                     oModel.getData().fileProcessIsAllowed = true;
+                    oModel.getData().tableEditIsAllowed = true;
                 } 
 
                 oModel.getData().validCount = requests.filter(function(value) { return value.status === "3" }).length;
@@ -89,7 +90,7 @@ sap.ui.define([
             var vm = oModel.getData();
             vm.processedCount = vm.vatNumbers.filter(function(value) { return value.status === "3" }).length;
 
-            if (!vm.fileSelected || vm.requesterCountryCode.length===0 || vm.requesterVatNumber.length===0) {
+            if ((!vm.fileSelected && vm.vatNumbers.size === 0 )|| vm.requesterCountryCode.length===0 || vm.requesterVatNumber.length===0) {
             var messages = ["Please provide"];
 
             if (!vm.fileSelected ) {
@@ -123,6 +124,7 @@ sap.ui.define([
                          vm.validateIsAllowed = false;
                          vm.exportIsAllowed = false;
                          vm.fileProcessIsAllowed = false;
+                         vm.tableEditIsAllowed = false;
                         // alert('Submitted');
                     }
                 }
