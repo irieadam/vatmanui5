@@ -5,14 +5,14 @@ var sequelize;
 if (env === 'production') {
     sequelize = new Sequelize(process.env.DATABASE_URL, {
         dialect : 'postgres',
-        logging: true
+        logging: false
     });
 } else {
 
     sequelize = new Sequelize(undefined, undefined, undefined, {
         'dialect': 'sqlite',
         'storage': __dirname + '/data/vatman.sqlite',
-         logging: true
+         logging: false
     });
 }
 var db = {}; 
