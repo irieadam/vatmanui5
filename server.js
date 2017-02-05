@@ -225,7 +225,7 @@ app.get('/export', middleware.requireAuthentication, function (req, res) {
 
 // db init
 db.sequelize.sync({
-    force: true
+    force: false
  }).then(function () {
     console.log('Starting!');
     http.listen(PORT, function () {
