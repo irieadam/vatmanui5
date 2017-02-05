@@ -182,7 +182,7 @@ sap.ui.define([
             oListBinding.aFilters = null;
 
             jQuery.ajax({
-                type: "DELETE",
+                type: "POST",
                 contentType: "application/json",
                 url: "/users/logout",
                 success: function () {

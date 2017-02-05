@@ -20,7 +20,7 @@
 												<l:GridData span="L1 M1 S2" />
 											</layoutData>
 										</Input>
-										<Input value="{um>/newUser/vatNumber}" id="vatNumber">
+										<Input value="{um>/newUser/vatNumber}" id="vatNumber" >
 											<layoutData>
 												<l:GridData span="L3 M3 S6" />
 											</layoutData>

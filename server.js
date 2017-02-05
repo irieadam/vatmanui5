@@ -95,7 +95,7 @@ app.delete('/users/:id', middleware.requireAuthentication , function (req, res) 
 });
 
 
-app.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
+app.post('/users/logout', middleware.requireAuthentication, function (req, res) {
     util.doLogout(req, res,db);
     var id = util.getCookies(req).sessionId;
     removeWSClient(id);

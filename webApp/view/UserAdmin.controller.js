@@ -32,6 +32,7 @@ sap.ui.define([
 
 		createUser: function (oEvent) {
 			var newUser = this.getView().getModel("um").getData().newUser;
+			newUser.isAdmin = false;
 			jQuery.ajax({
 			type: "POST",
 			contentType: "application/json",
