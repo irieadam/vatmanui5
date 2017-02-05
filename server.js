@@ -225,13 +225,15 @@ app.get('/export', middleware.requireAuthentication, function (req, res) {
 
 // db init
 db.sequelize.sync({
-    force: false
+    force: true
  }).then(function () {
+    console.log('Starting!');
     http.listen(PORT, function () {
 
     db.user.findAll({where : {
         id : 1
       }}).then(function (data) {
+        
           if (data.length === 0 ) {
             var body = {
                 email: 'admin@vatvision.com',

@@ -12,7 +12,7 @@ if (env === 'production') {
     sequelize = new Sequelize(undefined, undefined, undefined, {
         'dialect': 'sqlite',
         'storage': __dirname + '/data/vatman.sqlite',
-         logging: false
+         logging: true
     });
 }
 var db = {}; 
