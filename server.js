@@ -289,6 +289,6 @@ function removeWSClient (sessionId) {
 };
 function clearRequests (db) {
         db.request.destroy( {
-        where : { id : {$ne : 0} }
+        where : { id : {$ne : "0"} }
     }).then();
 }
