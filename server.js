@@ -59,7 +59,43 @@ app.post('/users/login', function (req, res) {
     util.doLogin(req, res, db);
 });
 
-app.delete('/logout', middleware.requireAuthentication, function (req, res) {
+app.post('/users',middleware.requireAuthentication, function(req, res){
+    var body = _.pick(req.body,'email','isAdmin','countryCode','vatNumber', 'name','address','password') ;
+    
+    db.user.create(body).then(function (user) {
+        res.json(user.toPublicJSON());
+    } ).catch(function (e){
+        res.status(400).json(e);
+    })
+
+});
+
+app.get('/users',middleware.requireAuthentication, function (req, res) {
+    util.getUsers(res, db);
+});
+
+app.delete('/users/:id', middleware.requireAuthentication , function (req, res) {
+     var userId  = parseInt(req.params.id,10);
+        db.user.destroy({
+            where : {
+                id: userId
+            }
+        }).then(function (rowsDeleted) {
+             if (rowsDeleted === 0) {
+                 res.status(404).json({
+                     error : 'no user found'
+                 });
+             } else {
+                res.status(200).send();    
+             }
+        } ,function () {
+            res.status(500).send();  
+          }
+     );  
+});
+
+
+app.delete('/users/logout', middleware.requireAuthentication, function (req, res) {
     util.doLogout(req, res,db);
     var id = util.getCookies(req).sessionId;
     removeWSClient(id);
@@ -164,27 +200,63 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     });
 });
 
+app.post('/validate', function (req, res) {
+    var checkVatApprox = {
+        countryCode: req.body.countryCode,
+        vatNumber: req.body.vatNumber,
+        requesterCountryCode: req.body.requesterCountryCode,
+        requesterVatNumber: req.body.requesterVatNumber
+    };
+    var output = {};
+    util.getSoapClient().then(function (client) {
+        client.checkVatApprox(checkVatApprox, function (err, result) {
+            if (result) {
+                res.status(200).send(result);
+            } else {
+                res.status(501).send(err);
+            }
+        })
+    })
+});
+
 app.get('/export', middleware.requireAuthentication, function (req, res) {
     util.doExport(req, res,db);
-
 });
 
 // db init
 db.sequelize.sync({
-    force: true
+    force: false
  }).then(function () {
     http.listen(PORT, function () {
 
+    db.user.findAll({where : {
+        id : 1
+      }}).then(function (data) {
+          if (data.length === 0 ) {
+            var body = {
+                email: 'admin@vatvision.com',
+                password: 'happyday1',
+                isAdmin: true
+            };
+          db.user.create(body).then(function (user) {
+                clearRequests(db);
+                console.log('Started!');
+             }).catch(function (e) {
+                console.log('Admin user creation failed ' + e);
+            }) 
+
+          } else {
+              clearRequests(db);
+          }
+
+    }).catch(function (e){
+        var hello;
+    }
+
+    )  
         //create admin
-        var body = {
-            email: 'admin@vatvision.com',
-            password: 'happyday1'
-        };
-        db.user.create(body).then(function (user) {
-            console.log('Express listening on port + ' + PORT);
-        }).catch(function (e) {
-            console.log('Admin user creation failed ' + e);
-        })
+  
+
 
     });
 
@@ -213,3 +285,8 @@ function removeWSClient (sessionId) {
     }
 
 };
+function clearRequests (db) {
+        db.request.destroy( {
+        where : { id : {$ne : 0} }
+    }).then();
+}

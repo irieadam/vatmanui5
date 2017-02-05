@@ -16,9 +16,7 @@
                 </FlexBox>
             </content>
             <footer>
-                <Toolbar width="100%" id="aboutTb">
-                    <content></content>
-                </Toolbar>
+     
             </footer>
         </Page>
     </App>

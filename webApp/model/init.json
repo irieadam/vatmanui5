@@ -2,6 +2,7 @@
     "requestId": "",
     "requesterCountryCode": "",
     "requesterVatNumber": "",
+    "isAdmin" : false,
     "validCount" : 0,
     "notValidCount" : 0,
     "failedCount" : 0,

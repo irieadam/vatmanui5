@@ -13,6 +13,21 @@ module.exports = function (sequelize, DataTypes) {
             isEmail: true
         }
     },
+    isAdmin: {
+        type: DataTypes.BOOLEAN
+    },
+    countryCode: {
+        type: DataTypes.STRING
+    },
+     vatNumber: {
+        type: DataTypes.STRING
+    },
+     name: {
+        type: DataTypes.STRING
+    },
+    address: {
+        type: DataTypes.STRING
+    },
     salt: {
         type: DataTypes.STRING
     },

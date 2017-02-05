@@ -168,15 +168,23 @@ sap.ui.define([
                 case "About" : 
                  router.navTo("about",true);
                     break;    
+                case "User Admin" : 
+                 router.navTo("userAdmin",true);
+                    break;  
             }
         },
 
         doLogout: function () {
             that.getView().getModel("vm").getData().loggedOut = true;
+            var oTable = that.getView().byId("requestsTable");
+            var oListBinding = oTable.getBinding();
+            oListBinding.aSorters = null;
+            oListBinding.aFilters = null;
+
             jQuery.ajax({
                 type: "DELETE",
                 contentType: "application/json",
-                url: "/logout",
+                url: "/users/logout",
                 success: function () {
                    
                     initModel();
@@ -204,6 +212,11 @@ sap.ui.define([
         },
 
         clear : function (evt) {
+            var oTable = that.getView().byId("requestsTable");
+            var oListBinding = oTable.getBinding();
+            oListBinding.aSorters = null;
+            oListBinding.aFilters = null;
+
             var oModel = that.getView().getModel("vm");
             var vm = oModel.getData();
             vm.validateIsAllowed = false;
@@ -215,20 +228,7 @@ sap.ui.define([
             vm.processedCount = 0;
             vm.vatNumbers = [];
             that.getView().byId("fileUploader").clear();
-      
-/**
-            var oTable = this.getView().byId("requestsTable");
-            oTable.setEnableGrouping(false);
-            var cols = oTable.getColumns();
-            for (var col in cols ) {
-                cols[col].setGrouped(false);
-            }
-            var oListBinding = oTable.getBinding();
-            oListBinding.aSorters = null;
-            oListBinding.aFilters = null;
-            oModel.refresh(true);
-            oTable.setEnableGrouping(true);
- */
+
             oModel.refresh(true);
         },
 

@@ -1,0 +1,20 @@
+{"userList": [ {
+    "id" : "1",
+    "email" : "user1@bbb.com",
+    "countryCode"    : "NL",
+    "vatNumber" : "13131231313",
+    "name" : "Wim",
+    "address" : "Home",
+    "createdAt" : "",
+    "isAdmin" : false
+},
+ {
+    "id" : "2",
+    "email" : "user1@xxx.com",
+    "countryCode"    : "NL",
+    "vatNumber" : "13131231313",
+    "name" : "Jim",
+    "address" : "Home 2",
+    "createdAt" : "",
+    "isAdmin" : false
+}]} 

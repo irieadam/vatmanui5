@@ -1,0 +1,834 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'rebuild' ]
+2 info using npm@4.0.5
+3 info using node@v7.4.0
+4 info readInstalled object
+5 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5', 'vatmanui5@1.0.0' ]
+6 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/async',
+6 verbose rebuild   'async@2.1.4' ]
+7 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/lodash',
+7 verbose rebuild   'lodash@4.17.3' ]
+8 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bcrypt',
+8 verbose rebuild   'bcrypt@0.8.7' ]
+9 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bindings',
+9 verbose rebuild   'bindings@1.2.1' ]
+10 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/nan',
+10 verbose rebuild   'nan@2.3.5' ]
+11 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/body-parser',
+11 verbose rebuild   'body-parser@1.15.2' ]
+12 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bytes',
+12 verbose rebuild   'bytes@2.4.0' ]
+13 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/content-type',
+13 verbose rebuild   'content-type@1.0.2' ]
+14 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/debug',
+14 verbose rebuild   'debug@2.2.0' ]
+15 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ms',
+15 verbose rebuild   'ms@0.7.1' ]
+16 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/depd',
+16 verbose rebuild   'depd@1.1.0' ]
+17 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/http-errors',
+17 verbose rebuild   'http-errors@1.5.1' ]
+18 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/inherits',
+18 verbose rebuild   'inherits@2.0.3' ]
+19 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/setprototypeof',
+19 verbose rebuild   'setprototypeof@1.0.2' ]
+20 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/statuses',
+20 verbose rebuild   'statuses@1.3.1' ]
+21 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/iconv-lite',
+21 verbose rebuild   'iconv-lite@0.4.13' ]
+22 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/on-finished',
+22 verbose rebuild   'on-finished@2.3.0' ]
+23 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ee-first',
+23 verbose rebuild   'ee-first@1.1.1' ]
+24 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/qs',
+24 verbose rebuild   'qs@6.2.0' ]
+25 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/raw-body',
+25 verbose rebuild   'raw-body@2.1.7' ]
+26 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/unpipe',
+26 verbose rebuild   'unpipe@1.0.0' ]
+27 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/type-is',
+27 verbose rebuild   'type-is@1.6.14' ]
+28 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/media-typer',
+28 verbose rebuild   'media-typer@0.3.0' ]
+29 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/mime-types',
+29 verbose rebuild   'mime-types@2.1.13' ]
+30 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/mime-db',
+30 verbose rebuild   'mime-db@1.25.0' ]
+31 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cookie-parser',
+31 verbose rebuild   'cookie-parser@1.4.3' ]
+32 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cookie',
+32 verbose rebuild   'cookie@0.3.1' ]
+33 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cookie-signature',
+33 verbose rebuild   'cookie-signature@1.0.6' ]
+34 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/crypto-js',
+34 verbose rebuild   'crypto-js@3.1.8' ]
+35 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/express',
+35 verbose rebuild   'express@4.14.0' ]
+36 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/accepts',
+36 verbose rebuild   'accepts@1.3.3' ]
+37 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/negotiator',
+37 verbose rebuild   'negotiator@0.6.1' ]
+38 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/array-flatten',
+38 verbose rebuild   'array-flatten@1.1.1' ]
+39 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/content-disposition',
+39 verbose rebuild   'content-disposition@0.5.1' ]
+40 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/encodeurl',
+40 verbose rebuild   'encodeurl@1.0.1' ]
+41 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/escape-html',
+41 verbose rebuild   'escape-html@1.0.3' ]
+42 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/etag',
+42 verbose rebuild   'etag@1.7.0' ]
+43 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/finalhandler',
+43 verbose rebuild   'finalhandler@0.5.0' ]
+44 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/fresh',
+44 verbose rebuild   'fresh@0.3.0' ]
+45 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/merge-descriptors',
+45 verbose rebuild   'merge-descriptors@1.0.1' ]
+46 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/methods',
+46 verbose rebuild   'methods@1.1.2' ]
+47 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/parseurl',
+47 verbose rebuild   'parseurl@1.3.1' ]
+48 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/path-to-regexp',
+48 verbose rebuild   'path-to-regexp@0.1.7' ]
+49 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/proxy-addr',
+49 verbose rebuild   'proxy-addr@1.1.2' ]
+50 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/forwarded',
+50 verbose rebuild   'forwarded@0.1.0' ]
+51 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ipaddr.js',
+51 verbose rebuild   'ipaddr.js@1.1.1' ]
+52 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/range-parser',
+52 verbose rebuild   'range-parser@1.2.0' ]
+53 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/send',
+53 verbose rebuild   'send@0.14.1' ]
+54 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/destroy',
+54 verbose rebuild   'destroy@1.0.4' ]
+55 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/mime',
+55 verbose rebuild   'mime@1.3.4' ]
+56 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/serve-static',
+56 verbose rebuild   'serve-static@1.11.1' ]
+57 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/utils-merge',
+57 verbose rebuild   'utils-merge@1.0.0' ]
+58 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/vary',
+58 verbose rebuild   'vary@1.1.0' ]
+59 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/http',
+59 verbose rebuild   'http@0.0.0' ]
+60 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jsonwebtoken',
+60 verbose rebuild   'jsonwebtoken@6.2.0' ]
+61 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/joi',
+61 verbose rebuild   'joi@6.10.1' ]
+62 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/hoek',
+62 verbose rebuild   'hoek@2.16.3' ]
+63 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/isemail',
+63 verbose rebuild   'isemail@1.2.0' ]
+64 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/moment',
+64 verbose rebuild   'moment@2.17.1' ]
+65 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/topo',
+65 verbose rebuild   'topo@1.1.0' ]
+66 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jws',
+66 verbose rebuild   'jws@3.1.4' ]
+67 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/base64url',
+67 verbose rebuild   'base64url@2.0.0' ]
+68 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jwa',
+68 verbose rebuild   'jwa@1.1.5' ]
+69 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/buffer-equal-constant-time',
+69 verbose rebuild   'buffer-equal-constant-time@1.0.1' ]
+70 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ecdsa-sig-formatter',
+70 verbose rebuild   'ecdsa-sig-formatter@1.0.9' ]
+71 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/safe-buffer',
+71 verbose rebuild   'safe-buffer@5.0.1' ]
+72 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xtend',
+72 verbose rebuild   'xtend@4.0.1' ]
+73 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/node-xlsx',
+73 verbose rebuild   'node-xlsx@0.7.4' ]
+74 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xlsx',
+74 verbose rebuild   'xlsx@0.8.0' ]
+75 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/adler-32',
+75 verbose rebuild   'adler-32@1.0.0' ]
+76 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/concat-stream',
+76 verbose rebuild   'concat-stream@1.6.0' ]
+77 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/readable-stream',
+77 verbose rebuild   'readable-stream@2.2.2' ]
+78 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/buffer-shims',
+78 verbose rebuild   'buffer-shims@1.0.0' ]
+79 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/core-util-is',
+79 verbose rebuild   'core-util-is@1.0.2' ]
+80 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/isarray',
+80 verbose rebuild   'isarray@1.0.0' ]
+81 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/process-nextick-args',
+81 verbose rebuild   'process-nextick-args@1.0.7' ]
+82 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/string_decoder',
+82 verbose rebuild   'string_decoder@0.10.31' ]
+83 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/util-deprecate',
+83 verbose rebuild   'util-deprecate@1.0.2' ]
+84 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/typedarray',
+84 verbose rebuild   'typedarray@0.0.6' ]
+85 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/exit-on-epipe',
+85 verbose rebuild   'exit-on-epipe@0.1.0' ]
+86 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/printj',
+86 verbose rebuild   'printj@0.1.1' ]
+87 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cfb',
+87 verbose rebuild   'cfb@0.10.3' ]
+88 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/commander',
+88 verbose rebuild   'commander@2.9.0' ]
+89 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/graceful-readlink',
+89 verbose rebuild   'graceful-readlink@1.0.1' ]
+90 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/codepage',
+90 verbose rebuild   'codepage@1.3.8' ]
+91 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/voc',
+91 verbose rebuild   'voc@0.5.0' ]
+92 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/crc-32',
+92 verbose rebuild   'crc-32@1.0.1' ]
+93 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jszip',
+93 verbose rebuild   'jszip@2.4.0' ]
+94 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pako',
+94 verbose rebuild   'pako@0.2.9' ]
+95 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ssf',
+95 verbose rebuild   'ssf@0.8.2' ]
+96 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/colors',
+96 verbose rebuild   'colors@0.6.2' ]
+97 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/frac',
+97 verbose rebuild   'frac@0.3.1' ]
+98 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/path',
+98 verbose rebuild   'path@0.12.7' ]
+99 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/process',
+99 verbose rebuild   'process@0.11.9' ]
+100 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/util',
+100 verbose rebuild   'util@0.10.3' ]
+101 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/util/node_modules/inherits',
+101 verbose rebuild   'inherits@2.0.1' ]
+102 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pg',
+102 verbose rebuild   'pg@4.5.6' ]
+103 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/buffer-writer',
+103 verbose rebuild   'buffer-writer@1.0.1' ]
+104 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/generic-pool',
+104 verbose rebuild   'generic-pool@2.4.2' ]
+105 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/packet-reader',
+105 verbose rebuild   'packet-reader@0.2.0' ]
+106 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pg-connection-string',
+106 verbose rebuild   'pg-connection-string@0.1.3' ]
+107 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pg-types',
+107 verbose rebuild   'pg-types@1.11.0' ]
+108 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ap',
+108 verbose rebuild   'ap@0.2.0' ]
+109 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/postgres-array',
+109 verbose rebuild   'postgres-array@1.0.2' ]
+110 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/postgres-bytea',
+110 verbose rebuild   'postgres-bytea@1.0.0' ]
+111 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/postgres-date',
+111 verbose rebuild   'postgres-date@1.0.3' ]
+112 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/postgres-interval',
+112 verbose rebuild   'postgres-interval@1.0.2' ]
+113 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pgpass',
+113 verbose rebuild   'pgpass@0.0.3' ]
+114 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/split',
+114 verbose rebuild   'split@0.3.3' ]
+115 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/through',
+115 verbose rebuild   'through@2.3.8' ]
+116 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/semver',
+116 verbose rebuild   'semver@4.3.6' ]
+117 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pg-hstore',
+117 verbose rebuild   'pg-hstore@2.3.2' ]
+118 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/underscore',
+118 verbose rebuild   'underscore@1.8.3' ]
+119 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sequelize',
+119 verbose rebuild   'sequelize@3.28.0' ]
+120 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bluebird',
+120 verbose rebuild   'bluebird@3.4.7' ]
+121 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/dottie',
+121 verbose rebuild   'dottie@1.1.1' ]
+122 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/inflection',
+122 verbose rebuild   'inflection@1.10.0' ]
+123 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sequelize/node_modules/lodash',
+123 verbose rebuild   'lodash@4.12.0' ]
+124 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/moment-timezone',
+124 verbose rebuild   'moment-timezone@0.5.11' ]
+125 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/node-uuid',
+125 verbose rebuild   'node-uuid@1.4.7' ]
+126 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/retry-as-promised',
+126 verbose rebuild   'retry-as-promised@2.2.0' ]
+127 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cross-env',
+127 verbose rebuild   'cross-env@3.1.3' ]
+128 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cross-spawn',
+128 verbose rebuild   'cross-spawn@3.0.1' ]
+129 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/lru-cache',
+129 verbose rebuild   'lru-cache@4.0.2' ]
+130 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pseudomap',
+130 verbose rebuild   'pseudomap@1.0.2' ]
+131 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/yallist',
+131 verbose rebuild   'yallist@2.0.0' ]
+132 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/which',
+132 verbose rebuild   'which@1.2.12' ]
+133 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/isexe',
+133 verbose rebuild   'isexe@1.1.2' ]
+134 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sequelize/node_modules/semver',
+134 verbose rebuild   'semver@5.3.0' ]
+135 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/shimmer',
+135 verbose rebuild   'shimmer@1.1.0' ]
+136 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/terraformer-wkt-parser',
+136 verbose rebuild   'terraformer-wkt-parser@1.1.2' ]
+137 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/terraformer',
+137 verbose rebuild   'terraformer@1.0.7' ]
+138 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/toposort-class',
+138 verbose rebuild   'toposort-class@1.0.1' ]
+139 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/validator',
+139 verbose rebuild   'validator@5.7.0' ]
+140 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/wkx',
+140 verbose rebuild   'wkx@0.2.0' ]
+141 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/soap',
+141 verbose rebuild   'soap@0.17.0' ]
+142 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/compress',
+142 verbose rebuild   'compress@0.99.0' ]
+143 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/soap/node_modules/debug',
+143 verbose rebuild   'debug@0.7.4' ]
+144 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ejs',
+144 verbose rebuild   'ejs@2.3.4' ]
+145 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/soap/node_modules/lodash',
+145 verbose rebuild   'lodash@3.10.1' ]
+146 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/optional',
+146 verbose rebuild   'optional@0.1.3' ]
+147 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/request',
+147 verbose rebuild   'request@2.79.0' ]
+148 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/aws-sign2',
+148 verbose rebuild   'aws-sign2@0.6.0' ]
+149 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/aws4',
+149 verbose rebuild   'aws4@1.5.0' ]
+150 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/caseless',
+150 verbose rebuild   'caseless@0.11.0' ]
+151 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/combined-stream',
+151 verbose rebuild   'combined-stream@1.0.5' ]
+152 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/delayed-stream',
+152 verbose rebuild   'delayed-stream@1.0.0' ]
+153 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/extend',
+153 verbose rebuild   'extend@3.0.0' ]
+154 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/forever-agent',
+154 verbose rebuild   'forever-agent@0.6.1' ]
+155 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/form-data',
+155 verbose rebuild   'form-data@2.1.2' ]
+156 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/asynckit',
+156 verbose rebuild   'asynckit@0.4.0' ]
+157 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/har-validator',
+157 verbose rebuild   'har-validator@2.0.6' ]
+158 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/chalk',
+158 verbose rebuild   'chalk@1.1.3' ]
+159 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ansi-styles',
+159 verbose rebuild   'ansi-styles@2.2.1' ]
+160 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/escape-string-regexp',
+160 verbose rebuild   'escape-string-regexp@1.0.5' ]
+161 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/has-ansi',
+161 verbose rebuild   'has-ansi@2.0.0' ]
+162 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ansi-regex',
+162 verbose rebuild   'ansi-regex@2.0.0' ]
+163 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/strip-ansi',
+163 verbose rebuild   'strip-ansi@3.0.1' ]
+164 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/supports-color',
+164 verbose rebuild   'supports-color@2.0.0' ]
+165 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/is-my-json-valid',
+165 verbose rebuild   'is-my-json-valid@2.15.0' ]
+166 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/generate-function',
+166 verbose rebuild   'generate-function@2.0.0' ]
+167 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/generate-object-property',
+167 verbose rebuild   'generate-object-property@1.2.0' ]
+168 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/is-property',
+168 verbose rebuild   'is-property@1.0.2' ]
+169 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jsonpointer',
+169 verbose rebuild   'jsonpointer@4.0.1' ]
+170 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pinkie-promise',
+170 verbose rebuild   'pinkie-promise@2.0.1' ]
+171 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pinkie',
+171 verbose rebuild   'pinkie@2.0.4' ]
+172 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/hawk',
+172 verbose rebuild   'hawk@3.1.3' ]
+173 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/boom',
+173 verbose rebuild   'boom@2.10.1' ]
+174 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cryptiles',
+174 verbose rebuild   'cryptiles@2.0.5' ]
+175 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sntp',
+175 verbose rebuild   'sntp@1.0.9' ]
+176 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/http-signature',
+176 verbose rebuild   'http-signature@1.1.1' ]
+177 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/assert-plus',
+177 verbose rebuild   'assert-plus@0.2.0' ]
+178 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jsprim',
+178 verbose rebuild   'jsprim@1.3.1' ]
+179 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/extsprintf',
+179 verbose rebuild   'extsprintf@1.0.2' ]
+180 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/json-schema',
+180 verbose rebuild   'json-schema@0.2.3' ]
+181 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/verror',
+181 verbose rebuild   'verror@1.3.6' ]
+182 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sshpk',
+182 verbose rebuild   'sshpk@1.10.1' ]
+183 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/asn1',
+183 verbose rebuild   'asn1@0.2.3' ]
+184 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sshpk/node_modules/assert-plus',
+184 verbose rebuild   'assert-plus@1.0.0' ]
+185 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/dashdash',
+185 verbose rebuild   'dashdash@1.14.1' ]
+186 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/dashdash/node_modules/assert-plus',
+186 verbose rebuild   'assert-plus@1.0.0' ]
+187 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/getpass',
+187 verbose rebuild   'getpass@0.1.6' ]
+188 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/getpass/node_modules/assert-plus',
+188 verbose rebuild   'assert-plus@1.0.0' ]
+189 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/is-typedarray',
+189 verbose rebuild   'is-typedarray@1.0.0' ]
+190 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/isstream',
+190 verbose rebuild   'isstream@0.1.2' ]
+191 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/json-stringify-safe',
+191 verbose rebuild   'json-stringify-safe@5.0.1' ]
+192 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/oauth-sign',
+192 verbose rebuild   'oauth-sign@0.8.2' ]
+193 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/request/node_modules/qs',
+193 verbose rebuild   'qs@6.3.0' ]
+194 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/stringstream',
+194 verbose rebuild   'stringstream@0.0.5' ]
+195 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/tough-cookie',
+195 verbose rebuild   'tough-cookie@2.3.2' ]
+196 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/punycode',
+196 verbose rebuild   'punycode@1.4.1' ]
+197 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/tunnel-agent',
+197 verbose rebuild   'tunnel-agent@0.4.3' ]
+198 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/request/node_modules/uuid',
+198 verbose rebuild   'uuid@3.0.1' ]
+199 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sax',
+199 verbose rebuild   'sax@1.2.1' ]
+200 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/selectn',
+200 verbose rebuild   'selectn@0.9.6' ]
+201 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/strip-bom',
+201 verbose rebuild   'strip-bom@0.3.1' ]
+202 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/first-chunk-stream',
+202 verbose rebuild   'first-chunk-stream@0.1.0' ]
+203 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/is-utf8',
+203 verbose rebuild   'is-utf8@0.2.1' ]
+204 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xml-crypto',
+204 verbose rebuild   'xml-crypto@0.8.5' ]
+205 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xmldom',
+205 verbose rebuild   'xmldom@0.1.19' ]
+206 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xpath.js',
+206 verbose rebuild   'xpath.js@1.0.7' ]
+207 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3',
+207 verbose rebuild   'sqlite3@3.1.8' ]
+208 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/nan',
+208 verbose rebuild   'nan@2.4.0' ]
+209 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp',
+209 verbose rebuild   'node-pre-gyp@0.6.31' ]
+210 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/mkdirp',
+210 verbose rebuild   'mkdirp@0.5.1' ]
+211 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/mkdirp/node_modules/minimist',
+211 verbose rebuild   'minimist@0.0.8' ]
+212 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/nopt',
+212 verbose rebuild   'nopt@3.0.6' ]
+213 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/nopt/node_modules/abbrev',
+213 verbose rebuild   'abbrev@1.0.9' ]
+214 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog',
+214 verbose rebuild   'npmlog@4.0.0' ]
+215 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet',
+215 verbose rebuild   'are-we-there-yet@1.1.2' ]
+216 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/delegates',
+216 verbose rebuild   'delegates@1.0.0' ]
+217 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream',
+217 verbose rebuild   'readable-stream@2.1.5' ]
+218 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/buffer-shims',
+218 verbose rebuild   'buffer-shims@1.0.0' ]
+219 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/core-util-is',
+219 verbose rebuild   'core-util-is@1.0.2' ]
+220 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/inherits',
+220 verbose rebuild   'inherits@2.0.3' ]
+221 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/isarray',
+221 verbose rebuild   'isarray@1.0.0' ]
+222 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/process-nextick-args',
+222 verbose rebuild   'process-nextick-args@1.0.7' ]
+223 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/string_decoder',
+223 verbose rebuild   'string_decoder@0.10.31' ]
+224 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/are-we-there-yet/node_modules/readable-stream/node_modules/util-deprecate',
+224 verbose rebuild   'util-deprecate@1.0.2' ]
+225 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/console-control-strings',
+225 verbose rebuild   'console-control-strings@1.1.0' ]
+226 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge',
+226 verbose rebuild   'gauge@2.6.0' ]
+227 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/aproba',
+227 verbose rebuild   'aproba@1.0.4' ]
+228 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/has-color',
+228 verbose rebuild   'has-color@0.1.7' ]
+229 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/has-unicode',
+229 verbose rebuild   'has-unicode@2.0.1' ]
+230 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/object-assign',
+230 verbose rebuild   'object-assign@4.1.0' ]
+231 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/signal-exit',
+231 verbose rebuild   'signal-exit@3.0.1' ]
+232 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/string-width',
+232 verbose rebuild   'string-width@1.0.2' ]
+233 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/string-width/node_modules/code-point-at',
+233 verbose rebuild   'code-point-at@1.0.1' ]
+234 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan',
+234 verbose rebuild   'number-is-nan@1.0.1' ]
+235 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/string-width/node_modules/is-fullwidth-code-point',
+235 verbose rebuild   'is-fullwidth-code-point@1.0.0' ]
+236 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan',
+236 verbose rebuild   'number-is-nan@1.0.1' ]
+237 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/strip-ansi',
+237 verbose rebuild   'strip-ansi@3.0.1' ]
+238 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/strip-ansi/node_modules/ansi-regex',
+238 verbose rebuild   'ansi-regex@2.0.0' ]
+239 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/wide-align',
+239 verbose rebuild   'wide-align@1.1.0' ]
+240 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/set-blocking',
+240 verbose rebuild   'set-blocking@2.0.0' ]
+241 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rc',
+241 verbose rebuild   'rc@1.1.6' ]
+242 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rc/node_modules/deep-extend',
+242 verbose rebuild   'deep-extend@0.4.1' ]
+243 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rc/node_modules/ini',
+243 verbose rebuild   'ini@1.3.4' ]
+244 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rc/node_modules/minimist',
+244 verbose rebuild   'minimist@1.2.0' ]
+245 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rc/node_modules/strip-json-comments',
+245 verbose rebuild   'strip-json-comments@1.0.4' ]
+246 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request',
+246 verbose rebuild   'request@2.76.0' ]
+247 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/aws-sign2',
+247 verbose rebuild   'aws-sign2@0.6.0' ]
+248 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/aws4',
+248 verbose rebuild   'aws4@1.5.0' ]
+249 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/caseless',
+249 verbose rebuild   'caseless@0.11.0' ]
+250 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/combined-stream',
+250 verbose rebuild   'combined-stream@1.0.5' ]
+251 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/combined-stream/node_modules/delayed-stream',
+251 verbose rebuild   'delayed-stream@1.0.0' ]
+252 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/extend',
+252 verbose rebuild   'extend@3.0.0' ]
+253 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/forever-agent',
+253 verbose rebuild   'forever-agent@0.6.1' ]
+254 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/form-data',
+254 verbose rebuild   'form-data@2.1.1' ]
+255 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/form-data/node_modules/asynckit',
+255 verbose rebuild   'asynckit@0.4.0' ]
+256 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/mime-types',
+256 verbose rebuild   'mime-types@2.1.12' ]
+257 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/mime-types/node_modules/mime-db',
+257 verbose rebuild   'mime-db@1.24.0' ]
+258 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator',
+258 verbose rebuild   'har-validator@2.0.6' ]
+259 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk',
+259 verbose rebuild   'chalk@1.1.3' ]
+260 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/ansi-styles',
+260 verbose rebuild   'ansi-styles@2.2.1' ]
+261 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/escape-string-regexp',
+261 verbose rebuild   'escape-string-regexp@1.0.5' ]
+262 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/has-ansi',
+262 verbose rebuild   'has-ansi@2.0.0' ]
+263 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex',
+263 verbose rebuild   'ansi-regex@2.0.0' ]
+264 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/strip-ansi',
+264 verbose rebuild   'strip-ansi@3.0.1' ]
+265 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex',
+265 verbose rebuild   'ansi-regex@2.0.0' ]
+266 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/chalk/node_modules/supports-color',
+266 verbose rebuild   'supports-color@2.0.0' ]
+267 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/commander',
+267 verbose rebuild   'commander@2.9.0' ]
+268 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/commander/node_modules/graceful-readlink',
+268 verbose rebuild   'graceful-readlink@1.0.1' ]
+269 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid',
+269 verbose rebuild   'is-my-json-valid@2.15.0' ]
+270 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid/node_modules/generate-function',
+270 verbose rebuild   'generate-function@2.0.0' ]
+271 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid/node_modules/generate-object-property',
+271 verbose rebuild   'generate-object-property@1.2.0' ]
+272 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid/node_modules/generate-object-property/node_modules/is-property',
+272 verbose rebuild   'is-property@1.0.2' ]
+273 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid/node_modules/jsonpointer',
+273 verbose rebuild   'jsonpointer@4.0.0' ]
+274 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/is-my-json-valid/node_modules/xtend',
+274 verbose rebuild   'xtend@4.0.1' ]
+275 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/pinkie-promise',
+275 verbose rebuild   'pinkie-promise@2.0.1' ]
+276 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/har-validator/node_modules/pinkie-promise/node_modules/pinkie',
+276 verbose rebuild   'pinkie@2.0.4' ]
+277 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk',
+277 verbose rebuild   'hawk@3.1.3' ]
+278 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk/node_modules/boom',
+278 verbose rebuild   'boom@2.10.1' ]
+279 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk/node_modules/hoek',
+279 verbose rebuild   'hoek@2.16.3' ]
+280 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk/node_modules/cryptiles',
+280 verbose rebuild   'cryptiles@2.0.5' ]
+281 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk/node_modules/sntp',
+281 verbose rebuild   'sntp@1.0.9' ]
+282 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature',
+282 verbose rebuild   'http-signature@1.1.1' ]
+283 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/assert-plus',
+283 verbose rebuild   'assert-plus@0.2.0' ]
+284 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/jsprim',
+284 verbose rebuild   'jsprim@1.3.1' ]
+285 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/extsprintf',
+285 verbose rebuild   'extsprintf@1.0.2' ]
+286 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/json-schema',
+286 verbose rebuild   'json-schema@0.2.3' ]
+287 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/jsprim/node_modules/verror',
+287 verbose rebuild   'verror@1.3.6' ]
+288 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk',
+288 verbose rebuild   'sshpk@1.10.1' ]
+289 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/asn1',
+289 verbose rebuild   'asn1@0.2.3' ]
+290 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/assert-plus',
+290 verbose rebuild   'assert-plus@1.0.0' ]
+291 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/bcrypt-pbkdf',
+291 verbose rebuild   'bcrypt-pbkdf@1.0.0' ]
+292 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/tweetnacl',
+292 verbose rebuild   'tweetnacl@0.14.3' ]
+293 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/dashdash',
+293 verbose rebuild   'dashdash@1.14.0' ]
+294 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/ecc-jsbn',
+294 verbose rebuild   'ecc-jsbn@0.1.1' ]
+295 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/jsbn',
+295 verbose rebuild   'jsbn@0.1.0' ]
+296 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/getpass',
+296 verbose rebuild   'getpass@0.1.6' ]
+297 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/http-signature/node_modules/sshpk/node_modules/jodid25519',
+297 verbose rebuild   'jodid25519@1.0.2' ]
+298 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/is-typedarray',
+298 verbose rebuild   'is-typedarray@1.0.0' ]
+299 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/isstream',
+299 verbose rebuild   'isstream@0.1.2' ]
+300 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/json-stringify-safe',
+300 verbose rebuild   'json-stringify-safe@5.0.1' ]
+301 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/node-uuid',
+301 verbose rebuild   'node-uuid@1.4.7' ]
+302 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/oauth-sign',
+302 verbose rebuild   'oauth-sign@0.8.2' ]
+303 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/qs',
+303 verbose rebuild   'qs@6.3.0' ]
+304 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/stringstream',
+304 verbose rebuild   'stringstream@0.0.5' ]
+305 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/tough-cookie',
+305 verbose rebuild   'tough-cookie@2.3.2' ]
+306 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/tough-cookie/node_modules/punycode',
+306 verbose rebuild   'punycode@1.4.1' ]
+307 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/tunnel-agent',
+307 verbose rebuild   'tunnel-agent@0.4.3' ]
+308 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf',
+308 verbose rebuild   'rimraf@2.5.4' ]
+309 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob',
+309 verbose rebuild   'glob@7.1.1' ]
+310 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/fs.realpath',
+310 verbose rebuild   'fs.realpath@1.0.0' ]
+311 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/inflight',
+311 verbose rebuild   'inflight@1.0.6' ]
+312 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/once',
+312 verbose rebuild   'once@1.4.0' ]
+313 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/once/node_modules/wrappy',
+313 verbose rebuild   'wrappy@1.0.2' ]
+314 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/inflight/node_modules/wrappy',
+314 verbose rebuild   'wrappy@1.0.2' ]
+315 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/inherits',
+315 verbose rebuild   'inherits@2.0.3' ]
+316 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/minimatch',
+316 verbose rebuild   'minimatch@3.0.3' ]
+317 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion',
+317 verbose rebuild   'brace-expansion@1.1.6' ]
+318 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match',
+318 verbose rebuild   'balanced-match@0.4.2' ]
+319 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map',
+319 verbose rebuild   'concat-map@0.0.1' ]
+320 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/path-is-absolute',
+320 verbose rebuild   'path-is-absolute@1.0.1' ]
+321 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/semver',
+321 verbose rebuild   'semver@5.3.0' ]
+322 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar',
+322 verbose rebuild   'tar@2.2.1' ]
+323 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/node_modules/block-stream',
+323 verbose rebuild   'block-stream@0.0.9' ]
+324 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/node_modules/inherits',
+324 verbose rebuild   'inherits@2.0.3' ]
+325 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/node_modules/fstream',
+325 verbose rebuild   'fstream@1.0.10' ]
+326 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/node_modules/fstream/node_modules/graceful-fs',
+326 verbose rebuild   'graceful-fs@4.1.9' ]
+327 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack',
+327 verbose rebuild   'tar-pack@3.3.0' ]
+328 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/debug',
+328 verbose rebuild   'debug@2.2.0' ]
+329 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/debug/node_modules/ms',
+329 verbose rebuild   'ms@0.7.1' ]
+330 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream',
+330 verbose rebuild   'fstream@1.0.10' ]
+331 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream/node_modules/graceful-fs',
+331 verbose rebuild   'graceful-fs@4.1.9' ]
+332 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream/node_modules/inherits',
+332 verbose rebuild   'inherits@2.0.3' ]
+333 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream-ignore',
+333 verbose rebuild   'fstream-ignore@1.0.5' ]
+334 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream-ignore/node_modules/inherits',
+334 verbose rebuild   'inherits@2.0.3' ]
+335 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream-ignore/node_modules/minimatch',
+335 verbose rebuild   'minimatch@3.0.3' ]
+336 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion',
+336 verbose rebuild   'brace-expansion@1.1.6' ]
+337 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match',
+337 verbose rebuild   'balanced-match@0.4.2' ]
+338 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream-ignore/node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map',
+338 verbose rebuild   'concat-map@0.0.1' ]
+339 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/once',
+339 verbose rebuild   'once@1.3.3' ]
+340 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/once/node_modules/wrappy',
+340 verbose rebuild   'wrappy@1.0.2' ]
+341 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream',
+341 verbose rebuild   'readable-stream@2.1.5' ]
+342 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/buffer-shims',
+342 verbose rebuild   'buffer-shims@1.0.0' ]
+343 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/core-util-is',
+343 verbose rebuild   'core-util-is@1.0.2' ]
+344 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/inherits',
+344 verbose rebuild   'inherits@2.0.3' ]
+345 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/isarray',
+345 verbose rebuild   'isarray@1.0.0' ]
+346 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/process-nextick-args',
+346 verbose rebuild   'process-nextick-args@1.0.7' ]
+347 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/string_decoder',
+347 verbose rebuild   'string_decoder@0.10.31' ]
+348 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/util-deprecate',
+348 verbose rebuild   'util-deprecate@1.0.2' ]
+349 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/uid-number',
+349 verbose rebuild   'uid-number@0.0.6' ]
+350 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ws',
+350 verbose rebuild   'ws@1.1.1' ]
+351 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/options',
+351 verbose rebuild   'options@0.0.6' ]
+352 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ultron',
+352 verbose rebuild   'ultron@1.0.2' ]
+353 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bcrypt-pbkdf',
+353 verbose rebuild   'bcrypt-pbkdf@1.0.0' ]
+354 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/tweetnacl',
+354 verbose rebuild   'tweetnacl@0.14.5' ]
+355 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ecc-jsbn',
+355 verbose rebuild   'ecc-jsbn@0.1.1' ]
+356 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jsbn',
+356 verbose rebuild   'jsbn@0.1.0' ]
+357 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jodid25519',
+357 verbose rebuild   'jodid25519@1.0.2' ]
+358 verbose rebuild path, id [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ursa',
+358 verbose rebuild   'ursa@0.9.4' ]
+359 silly rebuild set [ '/Users/acsmith/work/dev/node/vatmanui5/node_modules/async',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/lodash',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bcrypt',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bindings',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/nan',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/body-parser',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/bytes',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/content-type',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/debug',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ms',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/depd',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/http-errors',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/inherits',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/setprototypeof',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/statuses',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/iconv-lite',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/on-finished',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ee-first',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/qs',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/raw-body',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/unpipe',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/type-is',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/media-typer',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/mime-types',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/mime-db',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cookie-parser',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cookie',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cookie-signature',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/crypto-js',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/express',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/accepts',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/negotiator',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/array-flatten',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/content-disposition',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/encodeurl',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/escape-html',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/etag',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/finalhandler',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/fresh',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/merge-descriptors',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/methods',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/parseurl',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/path-to-regexp',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/proxy-addr',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/forwarded',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ipaddr.js',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/range-parser',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/send',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/destroy',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/mime',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/serve-static',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/utils-merge',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/vary',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/http',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jsonwebtoken',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/joi',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/hoek',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/isemail',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/moment',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/topo',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jws',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/base64url',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jwa',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/buffer-equal-constant-time',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ecdsa-sig-formatter',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/safe-buffer',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xtend',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/node-xlsx',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/xlsx',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/adler-32',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/concat-stream',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/readable-stream',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/buffer-shims',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/core-util-is',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/isarray',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/process-nextick-args',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/string_decoder',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/util-deprecate',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/typedarray',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/exit-on-epipe',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/printj',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/cfb',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/commander',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/graceful-readlink',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/codepage',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/voc',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/crc-32',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/jszip',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pako',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/ssf',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/colors',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/frac',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/path',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/process',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/util',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/util/node_modules/inherits',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/pg',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/buffer-writer',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/generic-pool',
+359 silly rebuild set   '/Users/acsmith/work/dev/node/vatmanui5/node_modules/packet-reader',
+359 silly rebuild set   ... 253 more items ]
+360 verbose stack Error: Cannot find module 'internal/fs'
+360 verbose stack     at Function.Module._resolveFilename (module.js:470:15)
+360 verbose stack     at Function.Module._load (module.js:418:25)
+360 verbose stack     at Module.require (module.js:498:17)
+360 verbose stack     at require (internal/module.js:20:19)
+360 verbose stack     at evalmachine.<anonymous>:18:20
+360 verbose stack     at Object.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/cmd-shim/node_modules/graceful-fs/fs.js:11:1)
+360 verbose stack     at Module._compile (module.js:571:32)
+360 verbose stack     at Object.Module._extensions..js (module.js:580:10)
+360 verbose stack     at Module.load (module.js:488:32)
+360 verbose stack     at tryModuleLoad (module.js:447:12)
+361 verbose cwd /Users/acsmith/work/dev/node/vatmanui5
+362 error Darwin 15.6.0
+363 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "rebuild"
+364 error node v7.4.0
+365 error npm  v4.0.5
+366 error code MODULE_NOT_FOUND
+367 error Cannot find module 'internal/fs'
+368 error If you need help, you may report this error at:
+368 error     <https://github.com/npm/npm/issues>
+369 verbose exit [ 1, true ]

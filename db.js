@@ -16,7 +16,6 @@ if (env === 'production') {
     });
 }
 var db = {}; 
-
 db.request = sequelize.import(__dirname + '/models/request.js');
 db.user = sequelize.import(__dirname + '/models/user.js');
 db.token = sequelize.import(__dirname + '/models/token.js');

@@ -35,9 +35,12 @@ sap.ui.define([
                 error: function () {
                     MessageToast.show("Authentication Failed");
                 },
-                success: function () {
-                   that.getView().getModel("vm").getData().loggedOut = false;
-
+                success: function (data) {
+                   var oModel =  that.getView().getModel("vm").getData()
+                   oModel.loggedOut = false;
+                   oModel.isAdmin = data.isAdmin;
+                   oModel.requesterVatNumber = data.vatNumber ;
+                   oModel.requesterCountryCode =  data.countryCode;
                    connection = new sap.ui.core.ws.WebSocket('/node/process');      
                    // router.getTargets().display("validation");
                    router.navTo("validation",true);

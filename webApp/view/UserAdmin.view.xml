@@ -1,0 +1,92 @@
+<mvc:View
+height="100%"
+    controllerName="vatmanui5.webApp.view.UserAdmin"
+    xmlns="sap.m"
+	xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+
+<App class="thisApp"> 
+<Page title="User Administration" id="__page0" enableScrolling="true" floatingFooter="true" showNavButton="true" navButtonPress="onNavBack">
+	 <headerContent>
+	  
+	 </headerContent>
+
+	        <content>
+		
+			<t:Table noDataText="no data" 
+				id="usersTable" 
+				showSeparators="Inner"
+				enableColumnReordering="false"
+				rows="{um>/userList}" 
+				visibleRowCount="10"
+				showColumnVisibilityMenu="false"
+				enableSelectAll="false">
+
+			<t:toolbar>
+					<Toolbar>
+						<content>
+						<ToolbarSpacer/>
+						<Button id="createUser" icon="sap-icon://account" tooltip="Add a new user" press="createUserPopover"/>
+				
+						<Button id="deleteUser" icon="sap-icon://less" tooltip="Delete selected user" press="deleteUser" />
+						
+						</content>
+					</Toolbar>
+					</t:toolbar>
+
+				<t:columns>
+						<t:Column id="idCol" width="1em" resizable="false">
+							<Label text="id"/>
+								<t:template>
+									<Label width="100%" id="id" text="{um>id}"  class="myLabel"/>
+								</t:template>
+					</t:Column>	
+					<t:Column id="emailCol" width="4em" resizable="false">
+							<Label text="Email"/>
+								<t:template>
+									<Label width="100%" id="email" text="{um>email}"  class="myLabel"/>
+								</t:template>
+					</t:Column>	
+					<t:Column id="countryCol" width="2em" resizable="false" >
+							<Label text="Country"/>
+								<t:template>
+									<Label width="100%" id="countryCode" text="{um>countryCode}" class="myLabel"/>
+								</t:template>
+					</t:Column>	
+					<t:Column id="vatnumCol" width="3em"  resizable="false" >
+						<Label text="VAT Number"/>
+							<t:template>
+							<Label width="100%" id="vatNumber" text="{um>vatNumber}"  class="myLabel"/>
+						</t:template>
+					</t:Column>	
+					<t:Column id="nameCol" width="4em" resizable="false" >
+							<Label text="Name"/>
+								<t:template>
+									<Label width="100%" id="traderName" text="{um>name}"  class="myLabel"/>
+								</t:template>
+					</t:Column>	
+					<t:Column id="addressCol" width="6em" resizable="false">
+							<Label text="Address" />
+								<t:template>
+									<Label width="100%" id="traderAddress" text="{um>address}"  class="myLabel"/>
+								</t:template>
+					</t:Column>	
+					<t:Column id="validFromDate" width="3em"  resizable="false">
+							<Label text="Valid From"/>
+								<t:template>
+								<Label width="100%" id="createdAt" text="{um>createdAt}"  class="myLabel"/>
+								</t:template>
+
+					</t:Column>	
+	
+				</t:columns>
+			</t:Table>
+
+	        </content>
+	        <footer>
+	          
+	        </footer>
+	        </Page>
+			</App>
+</mvc:View>
