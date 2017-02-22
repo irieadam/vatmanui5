@@ -241,22 +241,25 @@ sap.ui.define([
             if (aIndices.length > 0) {
                     // get the selected row data from the (json) model
                   for (var j in aIndices) {
-                        oRow = oTable.getRows()[j];
+                        oRow = oTable.getRows()[aIndices[j]];
                         oRowData = oRow.getBindingContext("vm").getObject();
 
                         for (var i=0; i<oData.length; i++){
                             if(oData[i].itemId === oRowData.itemId){
                                 // we found the right entry, now remove it from the model
                                 oRemoved = oData.splice(i, 1);
-                                oTable.clearSelection();
+                                
                                 if (oData.length === 0) {
                                    oModel.getData().validateIsAllowed = false; 
                                 }
-                                oModel.refresh();
-                                return;
+                              
+                             
                             }
                         }
                      }  
+                     oTable.clearSelection();
+                        oModel.refresh();
+                                return;
                 } else {
                     sap.m.MessageToast.show('Please select a row');
                     return;
