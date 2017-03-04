@@ -29,7 +29,7 @@ sap.ui.define([
                 var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
               
-            //    console.log("Data!!" + JSON.stringify(data));
+        console.log("Data!!" + JSON.stringify(data));
 
                // TODO check this loop for use of filter, and the oModel should be vm.
                 if(typeof data.itemId !== 'undefined') {
@@ -189,6 +189,8 @@ sap.ui.define([
                    
                     initModel();
                     router.navTo("login");
+                    window.location.reload(false);
+                    
                 }
             })
         },
@@ -254,7 +256,7 @@ sap.ui.define([
                                 }
                               
                              
-                            }
+                            }   
                         }
                      }  
                      oTable.clearSelection();
