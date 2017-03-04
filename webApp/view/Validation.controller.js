@@ -4,9 +4,10 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/m/MessageToast",
+    "sap/ui/commons/MessageBox",
     "sap/ui/model/resource/ResourceModel",
    	"sap/ui/core/routing/History"
-], function (Controller, JSONModel, Filter, MessageToast, ResourceModel,History) {
+], function (Controller, JSONModel, Filter, MessageToast,MessageBox, ResourceModel,History) {
     "use strict";
 
     return Controller.extend("vatmanui5.webApp.view.Validation", {
@@ -233,6 +234,17 @@ sap.ui.define([
 
             oModel.refresh(true);
         },
+
+        fnCallbackConfirm : function (bResult) {
+            if(bResult) {
+                that.deleteRows();
+            }
+        }, 
+
+        openConfirm: function (evt) {
+            // open a simple confirm box
+            MessageBox.confirm("Are you sure?", this.fnCallbackConfirm, "Delete Row(s)");
+        }, 
 
         deleteRows : function (evt) {
             var oTable = that.byId("requestsTable");
