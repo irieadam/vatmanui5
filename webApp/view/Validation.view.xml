@@ -93,7 +93,8 @@ height="100%"
 									<content>
 									<ToolbarSpacer/>
 									<Button id="addRow" icon="sap-icon://add" tooltip="Add a row" press="addRow" enabled="{vm>/tableEditIsAllowed}"/>
-									<Button id="deleteRows" icon="sap-icon://less" tooltip="Delete selected rows" press="openConfirm" enabled="{vm>/tableEditIsAllowed}"/>
+									<Button id="deleteRows" icon="sap-icon://less" tooltip="Delete selected rows" press="deleteRows" enabled="{vm>/tableEditIsAllowed}"/>
+									<Button id="undoDelete" icon="sap-icon://undo" tooltip="Undo delete" press="undoDelete" enabled="{vm>/undoIsAllowed}"/>
 									</content>
 								</Toolbar>
 								</t:toolbar>

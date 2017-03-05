@@ -1,20 +1,20 @@
 var that;
+var undoDeletelist  = [];
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/m/MessageToast",
-    "sap/ui/commons/MessageBox",
     "sap/ui/model/resource/ResourceModel",
    	"sap/ui/core/routing/History"
-], function (Controller, JSONModel, Filter, MessageToast,MessageBox, ResourceModel,History) {
+], function (Controller, JSONModel, Filter, MessageToast, ResourceModel,History) {
     "use strict";
 
     return Controller.extend("vatmanui5.webApp.view.Validation", {
         
         onInit: function () {
             that = this;
-            
+            undoDeletelist = [];
             // events for file drop
             this.getView().byId("__page0").attachBrowserEvent("dragenter", dragenter, false);
             this.getView().byId("__page0").attachBrowserEvent("dragover", dragover, false);
@@ -30,8 +30,6 @@ sap.ui.define([
                 var requests = oModel.getData().vatNumbers;
                 var data = jQuery.parseJSON(oControlEvent.getParameter("data"));
               
-        console.log("Data!!" + JSON.stringify(data));
-
                // TODO check this loop for use of filter, and the oModel should be vm.
                 if(typeof data.itemId !== 'undefined') {
 
@@ -126,7 +124,6 @@ sap.ui.define([
                          vm.exportIsAllowed = false;
                          vm.fileProcessIsAllowed = false;
                          vm.tableEditIsAllowed = false;
-                        // alert('Submitted');
                     }
                 }
                 client.send(JSON.stringify(batch));
@@ -135,28 +132,8 @@ sap.ui.define([
         },
 
         onExport: function(evt) {
-       //   var msg = {format : that.getView().byId("formatSelection").getSelectedIndex()};
          var format = that.getView().byId("formatSelection").getSelectedIndex();
             window.open('/export?format='+format);
-        },
-
-        onShowHello: function () {
-
-            var msg = "TEST MESSAGE";
-            if (msg.length > 0) {
-                connection.send(JSON.stringify(
-                    { vatRequester: "NL67321678", vatNumbers: [{ country: "nl", vatNumber: "nmnmklkl" }] }
-                ));
-                // oModel.setData({message: ""}, true);
-            }
-
-
-            // read msg from i18n model
-            //         var oBundle = this.getView().getModel("i18n").getResourceBundle();
-            //         var sRecipient = this.getView().getModel().getProperty("/recipient/name");
-            //         var sMsg = oBundle.getText("helloMsg", [sRecipient]);
-            // show message
-            //        MessageToast.show(sMsg);
         },
 
         onMenuAction: function(oEvent) {
@@ -230,21 +207,11 @@ sap.ui.define([
             vm.failedCount = 0;
             vm.processedCount = 0;
             vm.vatNumbers = [];
+            undoDeletelist = [];
             that.getView().byId("fileUploader").clear();
 
             oModel.refresh(true);
         },
-
-        fnCallbackConfirm : function (bResult) {
-            if(bResult) {
-                that.deleteRows();
-            }
-        }, 
-
-        openConfirm: function (evt) {
-            // open a simple confirm box
-            MessageBox.confirm("Are you sure?", this.fnCallbackConfirm, "Delete Row(s)");
-        }, 
 
         deleteRows : function (evt) {
             var oTable = that.byId("requestsTable");
@@ -253,47 +220,53 @@ sap.ui.define([
             var oData = oModel.getData().vatNumbers;
             var oRow, oRowData, oRemoved;
             var removedIds = [];
+            undoDeletelist = [];
+           
             if (aIndices.length > 0) {
                     // get the selected row data from the (json) model
-                  for (var j in aIndices) {
-                        oRow = oTable.getRows()[aIndices[j]];
-                        oRowData = oRow.getBindingContext("vm").getObject();
-                        removedIds.push(oRowData.itemId);
-
-                   /**     for (var i=0; i<oData.length; i++){
-                            if(oData[i].itemId === oRowData.itemId){
-                                // we found the right entry, now remove it from the model
-                                oRemoved = oData.splice(i, 1);
-                                if (oData.length === 0) {
-                                   oModel.getData().validateIsAllowed = false; 
-                                }
-                                oModel.refresh();
-                             break;
-                            }   
-                        }
-                        **/
-                     }  
+                for (var j in aIndices) {
+                    oRow = oTable.getRows()[aIndices[j]];
+                    oRowData = oRow.getBindingContext("vm").getObject();
+                    removedIds.push({"index" : oRow.getBindingContext("vm").sPath.substring(12,oRow.getBindingContext("vm").sPath.length),
+                                     "itemId" : oRowData.itemId});
+                }  
                      
-                     for (var l in removedIds){
-                         for (var i=0; i<oData.length; i++){
-                            if(oData[i].itemId === removedIds[l]){
-                                // we found the right entry, now remove it from the model
-                                oRemoved = oData.splice(i, 1);
-                                if (oData.length === 0) {
-                                   oModel.getData().validateIsAllowed = false; 
-                                }
-                             break;
-                            }   
+                for (var l in removedIds){
+                    for (var i=0; i<oData.length; i++){
+                    if(oData[i].itemId === removedIds[l].itemId){
+                        // we found the right entry, now remove it from the model
+                        undoDeletelist.push({ "index" : removedIds[l].index, "item" : oData.splice(i, 1)[0]});
+                        if (oData.length === 0) {
+                            oModel.getData().validateIsAllowed = false; 
                         }
-                     }
+                        break;
+                    }   
+                  }
+                }
 
-                     oTable.clearSelection();
-                        oModel.refresh();
-                                return;
+                oTable.clearSelection();
+                oModel.getData().undoIsAllowed = true;
+                oModel.refresh();
+                return;
+
                 } else {
                     sap.m.MessageToast.show('Please select a row');
                     return;
                 }
+        },
+
+        undoDelete : function(evt) {
+          var oModel = that.getView().getModel("vm")
+
+          do {
+             oModel.getData().vatNumbers.splice(undoDeletelist[0].index, 0, undoDeletelist[0].item)
+             undoDeletelist.splice(0, 1); 
+          }
+          while (undoDeletelist.length > 0);
+
+         oModel.getData().undoIsAllowed = false; 
+         oModel.refresh(); 
+       
         },
 
         addRow : function (evt) {

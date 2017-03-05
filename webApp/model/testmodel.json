@@ -11,6 +11,7 @@
     "exportIsAllowed" : true,
     "fileProcessIsAllowed" : true,
     "tableEditIsAllowed" : true,
+    "undoIsAllowed" : true,
     "processingStatus" : 0,
         "loggedOut" : true,
     "vatNumbers" : [ 
