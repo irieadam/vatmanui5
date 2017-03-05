@@ -1,5 +1,6 @@
 var that;
 var undoDeletelist  = [];
+var deleteCount =  0;
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
@@ -208,6 +209,7 @@ sap.ui.define([
             vm.processedCount = 0;
             vm.vatNumbers = [];
             undoDeletelist = [];
+            deleteCount = 0;
             that.getView().byId("fileUploader").clear();
 
             oModel.refresh(true);
@@ -220,7 +222,8 @@ sap.ui.define([
             var oData = oModel.getData().vatNumbers;
             var oRow, oRowData, oRemoved;
             var removedIds = [];
-            undoDeletelist = [];
+            var deletedItems = [];
+            deleteCount++
            
             if (aIndices.length > 0) {
                     // get the selected row data from the (json) model
@@ -228,14 +231,15 @@ sap.ui.define([
                     oRow = oTable.getRows()[aIndices[j]];
                     oRowData = oRow.getBindingContext("vm").getObject();
                     removedIds.push({"index" : oRow.getBindingContext("vm").sPath.substring(12,oRow.getBindingContext("vm").sPath.length),
-                                     "itemId" : oRowData.itemId});
+                                     "itemId" : oRowData.itemId
+                                    });
                 }  
                      
                 for (var l in removedIds){
                     for (var i=0; i<oData.length; i++){
                     if(oData[i].itemId === removedIds[l].itemId){
-                        // we found the right entry, now remove it from the model
-                        undoDeletelist.push({ "index" : removedIds[l].index, "item" : oData.splice(i, 1)[0]});
+                        // we found the right entry, now remove it from the model and put it in the undeletelist
+                        deletedItems.push({ "index" : removedIds[l].index, "item" : oData.splice(i, 1)[0]});
                         if (oData.length === 0) {
                             oModel.getData().validateIsAllowed = false; 
                         }
@@ -243,7 +247,7 @@ sap.ui.define([
                     }   
                   }
                 }
-
+                undoDeletelist.push(deletedItems)
                 oTable.clearSelection();
                 oModel.getData().undoIsAllowed = true;
                 oModel.refresh();
@@ -256,15 +260,21 @@ sap.ui.define([
         },
 
         undoDelete : function(evt) {
-          var oModel = that.getView().getModel("vm")
+          var oModel = that.getView().getModel("vm");
+          var deletionList = undoDeletelist[deleteCount-1];        
 
           do {
-             oModel.getData().vatNumbers.splice(undoDeletelist[0].index, 0, undoDeletelist[0].item)
-             undoDeletelist.splice(0, 1); 
+             oModel.getData().vatNumbers.splice(deletionList[0].index, 0, deletionList[0].item)
+             deletionList.splice(0, 1); 
           }
-          while (undoDeletelist.length > 0);
-
-         oModel.getData().undoIsAllowed = false; 
+         while (deletionList.length > 0);
+         
+         undoDeletelist.splice(deleteCount-1, 1);
+         
+         if(undoDeletelist.length===0) {
+             oModel.getData().undoIsAllowed = false;
+            }
+         deleteCount--;    
          oModel.refresh(); 
        
         },
