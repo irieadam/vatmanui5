@@ -252,25 +252,41 @@ sap.ui.define([
             var oModel = that.getView().getModel("vm")
             var oData = oModel.getData().vatNumbers;
             var oRow, oRowData, oRemoved;
+            var removedIds = [];
             if (aIndices.length > 0) {
                     // get the selected row data from the (json) model
                   for (var j in aIndices) {
                         oRow = oTable.getRows()[aIndices[j]];
                         oRowData = oRow.getBindingContext("vm").getObject();
+                        removedIds.push(oRowData.itemId);
 
-                        for (var i=0; i<oData.length; i++){
+                   /**     for (var i=0; i<oData.length; i++){
                             if(oData[i].itemId === oRowData.itemId){
                                 // we found the right entry, now remove it from the model
                                 oRemoved = oData.splice(i, 1);
-                                
                                 if (oData.length === 0) {
                                    oModel.getData().validateIsAllowed = false; 
                                 }
-                              
-                             
+                                oModel.refresh();
+                             break;
                             }   
                         }
+                        **/
                      }  
+                     
+                     for (var l in removedIds){
+                         for (var i=0; i<oData.length; i++){
+                            if(oData[i].itemId === removedIds[l]){
+                                // we found the right entry, now remove it from the model
+                                oRemoved = oData.splice(i, 1);
+                                if (oData.length === 0) {
+                                   oModel.getData().validateIsAllowed = false; 
+                                }
+                             break;
+                            }   
+                        }
+                     }
+
                      oTable.clearSelection();
                         oModel.refresh();
                                 return;
