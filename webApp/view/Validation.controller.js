@@ -339,7 +339,27 @@ sap.ui.define([
             if (fileType === 'csv') {
                 reader.readAsText(file);
             } else if (fileType === 'xlsx') {
-                reader.readAsBinaryString(file);
+                           reader.readAsArrayBuffer(file);
+            }
+
+            reader.onload = function (event) {
+
+                if (fileType === 'csv') {
+                    csvData = event.target.result;
+
+                } else if (fileType === "xlsx") {
+                
+                  var data = new Uint8Array(event.target.result);
+                  var arr = new Array();
+                  for(var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+                  var bstr = arr.join("");
+                    
+                    var cfb = XLSX.read(bstr, { type: 'binary' });
+                    var sheetName = cfb.SheetNames[0];
+                    csvData = XLS.utils.make_csv(cfb.Sheets[sheetName]);
+                }
+
+          /**      reader.readAsBinaryString(file);
             }
 
             reader.onload = function (event) {
@@ -352,7 +372,7 @@ sap.ui.define([
                     var cfb = XLSX.read(data, { type: 'binary' });
                     var sheetName = cfb.SheetNames[0];
                     csvData = XLS.utils.make_csv(cfb.Sheets[sheetName]);
-                }
+                } **/
 
                 // format input
                 var csvTextArray = csvData.split('\n');
