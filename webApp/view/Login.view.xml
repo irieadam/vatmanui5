@@ -3,8 +3,26 @@
     xmlns:l="sap.ui.layout" 
     xmlns:mvc="sap.ui.core.mvc">
     <App id="app" backgroundImage="" >
-        <Page title="Login" id="__page0" enableScrolling="false" floatingFooter="false" >
+        <Page id="__page0" enableScrolling="false" floatingFooter="false" >
             <content>
+                <FlexBox width="100%" id="__box0" alignItems="End" justifyContent="End" >
+
+	                        <items>
+								<HBox>
+								<Image
+									src="../images/logo_with_text_t.png"
+									densityAware="false"
+										decorative="true"
+									width="{/imageWidth}" 
+									height="4em">
+									<layoutData>
+										<FlexItemData growFactor="1" />
+									</layoutData>
+								</Image>
+							</HBox>
+	                        </items>
+
+	                    </FlexBox>
                 <FlexBox height="100%" alignItems="Center" justifyContent="Center">
                     <items>
                         <VBox>

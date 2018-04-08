@@ -16,6 +16,9 @@ module.exports = function (sequelize, DataTypes) {
     isAdmin: {
         type: DataTypes.BOOLEAN
     },
+    validTo: {
+        type: DataTypes.DATEONLY
+    },
     countryCode: {
         type: DataTypes.STRING
     },
@@ -74,7 +77,9 @@ module.exports = function (sequelize, DataTypes) {
                                 email: body.email
                             }
                         }).then(function (user) { 
-                            if (!user || !bcrypt.compareSync(body.password, user.get('password_hash'))) {
+                            var currentDate = new Date();
+                            console.log(new Date(user.get('validTo')), "is before " , currentDate, new Date(user.get('validTo')) < currentDate);
+                            if (!user || !bcrypt.compareSync(body.password, user.get('password_hash')) || new Date(user.get('validTo')) < currentDate ) {
                                 return reject();
                             }    
                             

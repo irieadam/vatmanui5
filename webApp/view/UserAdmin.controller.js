@@ -39,8 +39,8 @@ sap.ui.define([
 			url: "/users",
 			dataType: "json",
 			data : JSON.stringify(newUser),
-			error: function () {
-				MessageToast.show("Error creating user");
+			error: function (e) {
+				MessageToast.show("Error creating user"+ e);
 			},
 			success: function (data) {
 				sap.ui.getCore().byId('createUserPopover').close();

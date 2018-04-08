@@ -32,8 +32,8 @@ sap.ui.define([
                 url: "/users/login",
                 dataType: "json",
                 data: cred,
-                error: function () {
-                    MessageToast.show("Authentication Failed");
+                error: function (e) {
+                    MessageToast.show("Authentication Failed ");
                 },
                 success: function (data) {
                    var oModel  =  that.getView().getModel("vm");

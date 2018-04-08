@@ -7,7 +7,7 @@ height="100%"
 	xmlns:core="sap.ui.core">
 
 <App class="thisApp"> 
-<Page title="VAT Validation" id="__page0" enableScrolling="true" floatingFooter="true" >
+<Page id="__page0" enableScrolling="true" floatingFooter="true" >
 	 <headerContent>
 	    <MenuButton icon="sap-icon://menu">
             <menu>
@@ -46,11 +46,6 @@ height="100%"
 	                            <HBox width="100%" id="__hbox1">
 
 	                                <items>
-
-	                       <!--             <sap.ui.commons:TextField  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.commons="sap.ui.commons" id="__field0" width="4em" value="{vm>/requesterCountryCode}"/>
-
-	                                    <sap.ui.commons:TextField  xmlns:sap.ui.commons="sap.ui.commons" id="__field1" value="{vm>/requesterVatNumber}"/>
---> 
 										<Input id="requestCC" width="4em" value="{vm>/requesterCountryCode}"  liveChange="validateText" editable="{vm>/isAdmin}"/>
 
 										<Input id="requestV" value="{vm>/requesterVatNumber}" liveChange="validateText" editable="{vm>/isAdmin}"/>
@@ -58,7 +53,18 @@ height="100%"
 	                                </items>
 
 	                            </HBox>
-
+								<HBox>
+								<Image
+									src="../images/logo_with_text_t.png"
+									densityAware="false"
+										decorative="true"
+									width="{/imageWidth}" 
+									height="4em">
+									<layoutData>
+										<FlexItemData growFactor="1" />
+									</layoutData>
+								</Image>
+							</HBox>
 	                        </items>
 
 	                    </FlexBox>

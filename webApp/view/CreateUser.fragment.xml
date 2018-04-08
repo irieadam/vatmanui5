@@ -53,6 +53,14 @@
 											
 									</f:fields>
 								</f:FormElement>
+								<f:FormElement label="Valid To">
+									<f:fields>
+							
+									<DateTimePicker
+										id="DTP5"
+										value="{path:'um>/newUser/validTo', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"/>
+									</f:fields>
+								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 					</f:formContainers>

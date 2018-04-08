@@ -79,6 +79,13 @@ height="100%"
 								</t:template>
 
 					</t:Column>	
+					<t:Column id="validToDate" width="3em"  resizable="false">
+							<Label text="Valid To"/>
+								<t:template>
+								<Label width="100%" id="validTo" text="{um>validTo}"  class="myLabel"/>
+								</t:template>
+
+					</t:Column>	
 	
 				</t:columns>
 			</t:Table>

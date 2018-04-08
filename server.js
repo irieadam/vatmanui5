@@ -60,11 +60,12 @@ app.post('/users/login', function (req, res) {
 });
 
 app.post('/users',middleware.requireAuthentication, function(req, res){
-    var body = _.pick(req.body,'email','isAdmin','countryCode','vatNumber', 'name','address','password') ;
+    var body = _.pick(req.body,'email','isAdmin','countryCode','vatNumber', 'name','address','password', 'validTo') ;
     
     db.user.create(body).then(function (user) {
         res.json(user.toPublicJSON());
     } ).catch(function (e){
+        console.log("User create error ", e);
         res.status(400).json(e);
     })
 
@@ -228,7 +229,7 @@ app.get('/export', middleware.requireAuthentication, function (req, res) {
 
 // db init
 db.sequelize.sync({
-    force: false
+    force: true
  }).then(function () {
     console.log('Starting!');
     http.listen(PORT, function () {
@@ -236,12 +237,16 @@ db.sequelize.sync({
     db.user.findAll({where : {
         id : 1
       }}).then(function (data) {
-        
+          var dt = new Date();
+          dt.setDate("31");
+          dt.setMonth("12");
+          dt.setFullYear("9999");
           if (data.length === 0 ) {
             var body = {
                 email: 'admin@vatvision.com',
                 password: 'happyday1',
-                isAdmin: true
+                isAdmin: true,
+                validTo: dt
             };
           db.user.create(body).then(function (user) {
                 clearRequests(db);
