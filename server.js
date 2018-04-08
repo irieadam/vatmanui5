@@ -113,8 +113,10 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
     proceed = true;
 
     util.getSoapClient().then(function(client){
-
+            var counter = 0;
             async.eachLimit(vatNumbers, 28, function (vatRequest, cb) {
+                counter++
+                console.log(counter);
                 db.request.findOne({
                     where: {
                     itemId: vatRequest.itemId
@@ -187,6 +189,7 @@ app.post('/process', middleware.requireAuthentication, function (req, res) {
                 }
             
             });
+            console.log(">>>>>>>>>>>>>>>>>>>>>");
         }, function (err) {
             if (err) {
                 console.log('A file failed to process: ' +  err);

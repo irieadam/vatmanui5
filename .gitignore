@@ -2,3 +2,4 @@
 /webApp/resources
 .vscode
 /data/vatman.sqlite
+npm-debug.log
